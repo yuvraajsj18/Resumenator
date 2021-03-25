@@ -6,7 +6,11 @@ module.exports = {
       colors: {
         'light-blue': colors.lightBlue,
         cyan: colors.cyan,
-        brand: "#0C6BA1",
+        brand: {
+          light: '#308dc3',
+          DEFAULT: '#0C6BA1',
+          dark: '#064b72',
+        },
       },
     },
   },
