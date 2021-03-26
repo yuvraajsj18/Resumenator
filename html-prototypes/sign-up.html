@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resumenator</title>
+  </head>
+  <body>
+    <nav class="flex justify-between p-3 border-b bg-brand text-white">
+      <div class="logo text-lg cursor-pointer">RESUME<span class="px-1 bg-white text-brand">NATOR</span></div>
+      <div class="flex items-center">
+        <button class="mr-2 hover:border-b-2">Sign In</button>
+        <button class="border px-2 rounded-sm bg-white text-brand hover:bg-gray-200">Sign Up</button>
+      </div>
+    </nav>
+
+    <section class="mt-5 mx-auto p-2 max-w-xs sm:max-w-max bg-gray-100 rounded">
+      <div class="p-2 rounded-md text-center mb-3  bg-red-100 text-red-900">Error Message</div>
+      <div class="hidden p-2 rounded-md text-center mb-3 text-gray-700">(Spinner) Signing You In</div>
+      <form>
+        <div class="px-4 py-2">
+          <label for="email" class="font-medium">Email</label>
+          <input name="email" class="w-full p-2 border-2 rounded focus:outline-none focus:border-gray-400" type="text" placeholder="john@example.com" />
+        </div>
+        <div class="px-4 py-2">
+          <label for="password" class="font-medium">Password</label>
+          <input name="password" class="w-full p-2 border-2 rounded focus:outline-none focus:border-gray-400" type="password" placeholder="••••••" />
+        </div>
+        <div class="px-4 py-2">
+          <label for="confirm_password" class="font-medium">Confirm Password</label>
+          <input name="confirm_password" class="w-full p-2 border-2 rounded focus:outline-none focus:border-gray-400" type="password" placeholder="••••••" />
+        </div>
+        <button class="mx-auto mb-3 block border px-4 py-2 rounded-md bg-brand text-white hover:bg-brand-dark">Create Your Account</button>
+      </form>
+    </section>
+
+    
+
+    <footer class="text-center mt-5 py-3 border-t bg-brand-dark text-white fixed inset-x-0 bottom-0">
+      <div class="font-bold">Resumenator, &#169; 2021</div>
+      <div class="flex justify-between w-2/4 mx-auto mt-1">
+        <button>About</button>
+        <button>Credits</button>
+        <button>Github</button>
+      </div>
+    </footer>
+  </body>
+</html>
