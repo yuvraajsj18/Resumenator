@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resumenator</title>
+  </head>
+  <body>
+    <nav class="flex justify-between p-3 border-b bg-brand text-white">
+      <div class="logo text-lg cursor-pointer">RESUME<span class="px-1 bg-white text-brand">NATOR</span></div>
+      <div class="flex items-center">
+        <button class="mr-2 hover:border-b-2">Sign In</button>
+        <button class="border px-2 rounded-sm bg-white text-brand hover:bg-gray-200">Sign Up</button>
+      </div>
+    </nav>
+
+    <section class="mt-5 mx-auto max-w-xs sm:max-w-max min-h-screen">
+      <div class="p-2 rounded-md text-center mb-3  bg-red-100 text-red-900">Error Message</div>
+      <div class="hidden p-2 rounded-md text-center mb-3 text-gray-700">(Spinner) Signing You In</div>
+      <form class="p-2 bg-gray-100 rounded">
+        <div class="px-4 py-2">
+          <label for="email" class="font-medium">Email</label>
+          <input name="email" class="w-full p-2 border-2 rounded focus:outline-none focus:border-gray-400" type="text" placeholder="john@example.com" />
+        </div>
+        <div class="px-4 py-2">
+          <label for="password" class="font-medium">Password</label>
+          <input name="password" class="w-full p-2 border-2 rounded focus:outline-none focus:border-gray-400" type="password" placeholder="••••••" />
+        </div>
+        
+        <button class="mx-auto mb-3 block border px-4 py-2 rounded-md bg-brand text-white hover:bg-brand-dark">Sign In Now</button>
+      </form>
+
+      <img class="p-4 w-96"
+        src="https://raw.githubusercontent.com/yuvraajsj18/Resumenator/f49043da4fd518da97dcfa088a912e6e6ded35e2/src/assets/illustrations/sign-in.svg?token=ATLT6DGDI4FQRTB4D55CND3AL4BSE" 
+        alt="Sign-In Illustration" />
+    </section>
+
+    <footer class="text-center mt-5 py-3 border-t bg-brand-dark text-white">
+      <div class="font-bold">Resumenator &#169; 2021</div>
+      <div class="flex justify-between w-2/4 mx-auto mt-1">
+        <button>About</button>
+        <button>Credits</button>
+        <button>Github</button>
+      </div>
+    </footer>
+  </body>
+</html>
