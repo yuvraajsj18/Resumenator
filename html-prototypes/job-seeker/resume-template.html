@@ -3,279 +3,133 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume Template</title>
+    <title>Resumenator</title>
   </head>
   <body>
-    <div class="mx-auto max-w-4xl">
-      <header class="px-3 py-5 flex justify-between border-b-2 border-black">
-        <div>
-          <h1 class="text-3xl sm:text-4xl font-bold">Harry Potter <small class="text-lg block">Student</small></h1>
-        </div>
-        <div>
-          <ul class="flex flex-col items-end">
-            <li>harry@example.com</li>
-            <li>9876543210</li>
-            <li>London, UK</li>
-          </ul>
-        </div>
-      </header>
+    <nav class="flex justify-between p-3 border-b bg-brand text-white">
+      <div class="logo text-lg cursor-pointer">RESUME<span class="px-1 bg-white text-brand">NATOR</span></div>
+      <div class="flex items-center">
+        <button class="mr-2 hover:border-b-2">Resume</button>
+        <button class="mr-2 hover:border-b-2">Profile</button>
+        <button class="mr-2 hover:border-b-2">Sign Out</button>
+      </div>
+    </nav>
 
-      <main class="">
-        <div class="mt-5 flex flex-col sm:flex-row justify-between border-b-2 pb-2">
-          <h2 class="px-2 sm:w-1/5 w-full font-bold text-lg">Summary</h2>
-          <div class="px-6 w-4/5 self-end">
-            <p class="break-words">Friendly and competent Registered Nurse possessing a Bachelor of Science degree in nursing. 10 years of experience in ER, pediatric, and women’s health settings. Upholds high levels of patient care standards while staying abreast of nursing trends and best practices.</p>
+    <section class="min-h-screen overflow-x-hidden">
+      <h1 class="text-5xl sm:text-6xl text-center mt-5">My Resume</h1>
+
+      <div class="flex flex-col items-center mt-8">
+        <h2 class="text-3xl my-3 text-center">How Can Recruiters Contact You?</h2>
+        <form class="text-lg max-w-xs sm:max-w-none">
+          <div class="py-3">
+            <input class="border-b-2 focus:border-brand focus:outline-none mr-8 w-full sm:w-auto mb-3 sm:mb-0" type="text" placeholder="First Name" />
+            <input class="border-b-2 focus:border-brand focus:outline-none w-full sm:w-auto" type="text" placeholder="Last Name" />
           </div>
-        </div>
-        <div class="mt-5 flex flex-col sm:flex-row justify-between border-b-2 pb-2">
-          <h2 class="px-2 sm:w-1/5 w-full font-bold text-lg break-words">Education</h2>
-          <div class="px-6 w-4/5 self-end">
-            <ul>
-              <li class="mb-2">
-                <div class="flex justify-between">
-                  <h3>Delhi University</h3>
-                  <span class="text-sm">10 CGPA</span>
-                </div>
-                <div class="text-sm flex justify-between">
-                  <div>
-                    <span>B.SC</span>
-                    <span>delhi, delhi</span>
-                  </div> 
-                  <span>06/2022</span>
-                </div>
-              </li>
-              <li class="mb-2">
-                <div class="flex justify-between">
-                  <h3>Delhi University</h3>
-                  <span class="text-sm">10 CGPA</span>
-                </div>
-                <div class="text-sm flex justify-between">
-                  <div>
-                    <span>B.SC</span>
-                    <span>delhi, delhi</span>
-                  </div> 
-                  <span>06/2022</span>
-                </div>
-              </li>
-              <li class="mb-2">
-                <div class="flex justify-between">
-                  <h3>Delhi University</h3>
-                  <span class="text-sm">10 CGPA</span>
-                </div>
-                <div class="text-sm flex justify-between">
-                  <div>
-                    <span>B.SC</span>
-                    <span>delhi, delhi</span>
-                  </div> 
-                  <span>06/2022</span>
-                </div>
-              </li>
-            </ul>
+          <div class="py-3">
+            <input class="w-full border-b-2 focus:border-brand focus:outline-none" type="email" placeholder="Email" />
           </div>
-        </div>
-
-        <div class="mt-5 flex flex-col sm:flex-row justify-between border-b-2 pb-2">
-          <h2 class="px-2 sm:w-1/5 w-full font-bold text-lg break-words">Experience</h2>
-          <div class="px-6 w-4/5 self-end">
-            <ul>
-              <li class="mb-2">
-                <div class="flex justify-between">
-                  <h3>Google</h3>
-                </div>
-                <div class="text-sm flex justify-between">
-                  <div>
-                    <span>CEO</span> 
-                    <span>delhi, delhi</span>
-                  </div> 
-                  <div>
-                    <span>04/2016</span> -
-                    <span>06/2022</span>
-                  </div>
-                </div>
-              </li>
-              <li class="mb-2">
-                <div class="flex justify-between">
-                  <h3>Google</h3>
-                </div>
-                <div class="text-sm flex justify-between">
-                  <div>
-                    <span>CEO</span> 
-                    <span>delhi, delhi</span>
-                  </div> 
-                  <div>
-                    <span>04/2016</span> -
-                    <span>06/2022</span>
-                  </div>
-                </div>
-              </li>
-              <li class="mb-2">
-                <div class="flex justify-between">
-                  <h3>Google</h3>
-                </div>
-                <div class="text-sm flex justify-between">
-                  <div>
-                    <span>CEO</span> 
-                    <span>delhi, delhi</span>
-                  </div> 
-                  <div>
-                    <span>04/2016</span> -
-                    <span>06/2022</span>
-                  </div>
-                </div>
-              </li>
-            </ul>
+          <div class="py-3">
+            <input class="w-full border-b-2 focus:border-brand focus:outline-none" type="tel" placeholder="Phone Number" />
           </div>
-        </div>
-
-        <div class="mt-5 flex flex-col sm:flex-row justify-between border-b-2 pb-2">
-          <h2 class="px-2 sm:w-1/5 w-full font-bold text-lg">Skills</h2>
-          <div class="px-6 w-4/5 self-end">
-            <ul class="flex">
-             <li class="bg-gray-200 rounded-lg mr-3 px-2 py-1 text-sm">
-               c++
-             </li>
-             <li class="bg-gray-200 rounded-lg mr-3 px-2 py-1 text-sm">
-               python
-             </li>
-            </ul>
+          <div class="py-3">
+            <input class="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Job Title" />
           </div>
-        </div>
-
-        <div class="mt-5 flex flex-col sm:flex-row justify-between border-b-2 pb-2">
-          <h2 class="px-2 sm:w-1/5 w-full font-bold text-lg break-words">Projects</h2>
-
-          <div class="px-6 w-4/5 self-end">
-
-            <ul>
-              <li class="mb-2">
-                <h3>Project Title 1</h3>
-                <p class="text-sm break-words">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, saepe.
-                  Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Lorem ipsum dolor sit amet consectetur. dolor sit amet .
-                </p>
-              </li>
-            </ul>
-
-            <ul>
-              <li class="mb-2">
-                <h3>Project Title 2</h3>
-                <p class="text-sm break-words">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, saepe.
-                  Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Lorem ipsum dolor sit amet consectetur. dolor sit amet .
-                </p>
-              </li>
-            </ul>
-
+          <div class="py-3">
+            <input class="border-b-2 focus:border-brand focus:outline-none mr-8 w-full sm:w-auto mb-3 sm:mb-0" type="text" placeholder="City" />
+            <input class="border-b-2 focus:border-brand focus:outline-none w-full sm:w-auto" type="text" placeholder="Country" />
           </div>
-        </div>
 
-        <div class="mt-5 flex flex-col sm:flex-row justify-between border-b-2 pb-2">
-          <h2 class="px-2 sm:w-1/5 w-full font-bold text-lg break-words">Certifications</h2>
+          <div class="flex justify-between mt-5">
+            <button class="border rounded px-3 py-1 bg-brand-light text-white hover:bg-brand-dark">Previous</button>
 
-          <div class="px-6 w-4/5 self-end">
-
-            <ul>
-              <li class="mb-2">
-                <h3>Certificate 1</h3>
-                <p class="text-sm break-words">https://docs.google.com/document/d/1HJ9IOhNV4YHaPkDFDPo7ad_Zzz5riC3VeX4-U67vTCo/edit. 
-                </p>
-              </li>
-            </ul>
-
-            <ul>
-              <li class="mb-2">
-                <h3>Certificate 2</h3>
-                <p class="text-sm break-words">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, saepe adipisicing elit.
-                  Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor dolor.
-                </p>
-              </li>
-            </ul>
-
+            <button class="border rounded px-7 py-1 bg-brand-light text-white hover:bg-brand-dark">Next</button>
           </div>
-        </div>
+        </form>
+      </div>
 
-        <div class="mt-5 flex flex-col sm:flex-row justify-between border-b-2 pb-2">
-          <h2 class="px-2 sm:w-1/5 w-full font-bold text-lg break-words">Organization</h2>
-          <div class="px-6 w-4/5 self-end">
-            <ul>
-              <li class="mb-2">
-                <div class="flex justify-between">
-                  <h3>Rotaract</h3>
-                </div>
-                <div class="text-sm flex justify-between">
-                  <div>
-                    <span>CEO</span> 
-                    <span>delhi, delhi</span>
-                  </div> 
-                  <div>
-                    <span>04/2016</span> -
-                    <span>06/2022</span>
-                  </div>
-                </div>
-              </li>
-              <li class="mb-2">
-                <div class="flex justify-between">
-                  <h3>Facebook</h3>
-                </div>
-                <div class="text-sm flex justify-between">
-                  <div>
-                    <span>CEO</span> 
-                    <span>delhi, delhi</span>
-                  </div> 
-                  <div>
-                    <span>04/2016</span> -
-                    <span>06/2022</span>
-                  </div>
-                </div>
-              </li>
-              <li class="mb-2">
-                <div class="flex justify-between">
-                  <h3>Google</h3>
-                </div>
-                <div class="text-sm flex justify-between">
-                  <div>
-                    <span>CEO</span> 
-                    <span>delhi, delhi</span>
-                  </div> 
-                  <div>
-                    <span>04/2016</span> -
-                    <span>06/2022</span>
-                  </div>
-                </div>
-              </li>
-            </ul>
+      <div class="flex flex-col items-center mt-8">
+        <h2 class="text-3xl my-3 text-center">How can you describe yourself?</h2>
+        <form class="text-lg max-w-xs sm:max-w-none">
+          <div class="py-3">
+            <textarea class="w-full border-b-2 focus:border-brand focus:outline-none" cols="50" rows="6" maxlength="280" placeholder="Start typing"></textarea>
+            <div class="text-sm">Max word length is 280 characters.</div>
           </div>
-        </div>
 
-        <div class="mt-5 flex flex-col sm:flex-row justify-between pb-2">
-          <h2 class="px-2 sm:w-1/5 w-full font-bold text-lg break-words">Achievements</h2>
-          <div class="px-6 w-4/5 self-end">
-            <ul class="list-disc">
-              <li class="">
-                Employee of the day
-              </li>
-              <li class="">
-                Man of the match
-              </li>
-              <li class="">
-                Employee of the day
-              </li>
-              <li class="">
-                Man of the match
-              </li>
-            </ul>
+          <div class="flex justify-between mt-5">
+            <button class="border rounded px-3 py-1 bg-brand-light text-white hover:bg-brand-dark">Previous</button>
+
+            <button class="border rounded px-7 py-1 bg-brand-light text-white hover:bg-brand-dark">Next</button>
           </div>
-        </div>
-      </main>
+        </form>
+      </div>
 
-      <footer class="py-3 border-t-2 border-black">
-        <div class="flex flex-wrap px-2 justify-between sm:justify-around items-center">
-          <span><img class="w-8 inline rounded-full" src="https://i.pinimg.com/originals/d8/10/55/d81055d32cf810a6d527b5eb9ae20f08.png" > personal-site.com</span>
-          <span><img class="w-10 inline rounded-full" src="https://www.soroptimistinternational.org/wp-content/uploads/2020/03/251-2517877_tweet-twitter-icon-icon-chirrup-icon-icon-twitter-png-format-twitter-logo-300x205.jpg"> @username</span>
-          <span><img class="w-8 inline rounded-full" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"> @username</span>
-          <span><img class="w-8 inline rounded-full" src="https://image.flaticon.com/icons/png/512/174/174855.png"> @username</span>
-        </div>
-      </footer>
-    </div>
+      <div class="flex flex-col items-center mt-8">
+        <h2 class="text-3xl my-3 text-center">Where did you study?</h2>
+        <form class="text-lg max-w-xs sm:max-w-none">
+          <div class="py-3">
+            <input class="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Institute Name" />
+          </div>
+          <div class="py-3">
+            <input class="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Course" />
+          </div>
+          <div class="py-3">
+            <input class="border-b-2 focus:border-brand focus:outline-none mr-8 w-full" type="text" placeholder="Grade/CGPA/Percentage" />
+          </div>
+          <div class="py-3">
+            <label class="text-sm text-gray-800 block">Graduation Month</label>
+            <input class="border-b-2 focus:border-brand focus:outline-none w-full" type="month" />
+          </div>
+          <div class="py-3">
+            <input class="border-b-2 focus:border-brand focus:outline-none mr-8 w-full sm:w-auto mb-3 sm:mb-0" type="text" placeholder="City" />
+            <input class="border-b-2 focus:border-brand focus:outline-none w-full sm:w-auto" type="text" placeholder="Country" />
+          </div>
+
+          <div class="flex justify-between mt-5">
+            <button class="border rounded px-3 py-1 bg-brand-light text-white hover:bg-brand-dark">Previous</button>
+
+            <button class="border rounded px-7 py-1 bg-brand-light text-white hover:bg-brand-dark">Next</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="flex flex-col items-center mt-8">
+        <h2 class="text-3xl my-3 text-center">What are your most relevant experiences?</h2>
+        <form class="text-lg max-w-xs sm:max-w-none">
+          <div class="py-3">
+            <input class="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Company Name" />
+          </div>
+          <div class="py-3">
+            <input class="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Role" />
+          </div>
+          <div class="py-3">
+            <label class="text-sm text-gray-800 block">Start Month</label>
+            <input class="border-b-2 focus:border-brand focus:outline-none w-full" type="month" />
+          </div>
+          <div class="py-3">
+            <label class="text-sm text-gray-800 block">End Month</label>
+            <input class="border-b-2 focus:border-brand focus:outline-none w-full" type="month" />
+          </div>
+          <div class="py-3">
+            <input class="border-b-2 focus:border-brand focus:outline-none mr-8 w-full sm:w-auto mb-3 sm:mb-0" type="text" placeholder="City" />
+            <input class="border-b-2 focus:border-brand focus:outline-none w-full sm:w-auto" type="text" placeholder="Country" />
+          </div>
+
+          <div class="flex justify-between mt-5">
+            <button class="border rounded px-3 py-1 bg-brand-light text-white hover:bg-brand-dark">Previous</button>
+
+            <button class="border rounded px-7 py-1 bg-brand-light text-white hover:bg-brand-dark">Next</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="text-center mt-5 py-3 border-t bg-brand-dark text-white">
+      <div class="font-bold">Resumenator &#169; 2021</div>
+      <div class="flex justify-between w-2/4 mx-auto mt-1">
+        <button class="hover:underline">About</button>
+        <button class="hover:underline">Credits</button>
+        <button class="hover:underline">Github</button>
+      </div>
+    </footer>
   </body>
 </html>
