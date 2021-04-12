@@ -13,6 +13,8 @@ module.exports = {
           DEFAULT: '#0C6BA1',
           dark: '#064b72',
         },
+        twitter: '#00acee',
+        linkedIn: '#0077b5',
       },
     },
   },
