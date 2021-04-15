@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { Link, useHistory } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import GoogleSignInButton from 'react-google-button';
 import SignInIllustration from '../assets/illustrations/sign-in.svg'
 
 const Signin = () => {
@@ -12,7 +13,7 @@ const Signin = () => {
     const [loading, setLoading] = useState(false);
 
     const history = useHistory();
-    const { isAuthenticated, signin } = useAuth();
+    const { isAuthenticated, signin, signInWithGoogle } = useAuth();
 
     useEffect(() => {
         if(isAuthenticated) {
@@ -36,6 +37,19 @@ const Signin = () => {
         }
     }
 
+    const handleGoogleSignIn = async (e) => {
+        setError("");
+
+        try {
+            setLoading(true);
+            await signInWithGoogle();
+            history.push('/setup');
+        } catch (error) {
+            setLoading(false);
+            setError(error.message);
+        }
+    };
+
     return (
         <section className="mt-5 mx-auto max-w-xs sm:max-w-max min-h-screen">
             {   
@@ -47,7 +61,13 @@ const Signin = () => {
                 <div className="mt-4 p-2 max-w-xs sm:max-w-lg mx-auto rounded-md text-center mb-3 bg-blue-100 text-blue-900 flex justify-center items-center">
                     <AiOutlineLoading3Quarters className="animate-spin mx-4"/> Signing You In
                 </div>
-            }            <form className="p-2 bg-gray-100 rounded shadow-md" onSubmit={handleSignIn}>
+            }            
+            <GoogleSignInButton type="light"
+                className="my-4 mx-auto"
+                onClick={handleGoogleSignIn}
+                disabled={loading}
+            />
+            <form className="p-2 bg-gray-100 rounded shadow-md" onSubmit={handleSignIn}>
                 <div className="px-4 py-2">
                     <label htmlFor="email" className="font-medium">Email</label>
                     <input required ref={emailRef} name="email" className="w-full p-2 border-2 rounded focus:outline-none focus:border-gray-400" type="email" placeholder="john@example.com" />

@@ -1,17 +1,28 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import SignupIllustration from '../assets/illustrations/sign-up.svg'
 import { useAuth } from '../context/AuthContext'
+import GoogleSignInButton from 'react-google-button';
 import { useHistory } from 'react-router-dom'
 
 const Signup = () => {
-    const { signup } = useAuth();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const history = useHistory();
     const emailRef = useRef();
     const passwordRef = useRef();
     const confirmPasswordRef = useRef();
+
+    const { isAuthenticated, signup, signInWithGoogle } = useAuth();
+
+    useEffect(() => {
+        if(isAuthenticated) {
+            history.push('/setup');
+        }
+
+        document.title = "Sign Up | Resumenator";
+    });
+
 
     const handleSignup = async (e) => {
         e.preventDefault();
@@ -41,6 +52,19 @@ const Signup = () => {
         }
     }
 
+    const handleGoogleSignIn = async (e) => {
+        setError("");
+
+        try {
+            setLoading(true);
+            await signInWithGoogle();
+            history.push('/setup');
+        } catch (error) {
+            setLoading(false);
+            setError(error.message);
+        }
+    };
+
     return (
         <section className="mt-5 mx-auto max-w-xs sm:max-w-max min-h-screen">
             {   
@@ -53,6 +77,11 @@ const Signup = () => {
                     <AiOutlineLoading3Quarters className="animate-spin mx-4"/> Signing You In
                 </div>
             }
+            <GoogleSignInButton type="light"
+                className="my-4 mx-auto"
+                onClick={handleGoogleSignIn}
+                disabled={loading}
+            />
             <form className="p-2 bg-gray-100 rounded shadow-md" onSubmit={handleSignup}>
                 <div className="px-4 py-2">
                     <label htmlFor="email" className="font-medium">Email</label>

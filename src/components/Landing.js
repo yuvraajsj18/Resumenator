@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import ResumeIllustration from '../assets/illustrations/ResumeIllustration.svg'
 import InterviewIllustration from '../assets/illustrations/interview.svg'
 
 const Landing = () => {
+
+    useEffect(() => {
+        document.title = "Resumenator";
+    });
+
     return (
         <>
             <section className="py-5 mb-5 flex flex-col items-center">

@@ -6,6 +6,7 @@ const Setup = () => {
 
     useEffect(() => {
         console.log(currentUser)
+        document.title = "Setup | Resumenator";
     });
 
     return (
