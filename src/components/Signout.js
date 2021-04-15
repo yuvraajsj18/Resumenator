@@ -19,7 +19,7 @@ const Signout = () => {
         <div>
             <button 
             onClick={handleSignOut}
-            class="mr-2 hover:border-b-2">Sign Out</button>
+            className="mr-2 hover:border-b-2 focus:outline-none">Sign Out</button>
         </div>
     )
 }

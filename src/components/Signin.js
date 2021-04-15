@@ -50,7 +50,7 @@ const Signin = () => {
             }            <form className="p-2 bg-gray-100 rounded shadow-md" onSubmit={handleSignIn}>
                 <div className="px-4 py-2">
                     <label htmlFor="email" className="font-medium">Email</label>
-                    <input required ref={emailRef} name="email" className="w-full p-2 border-2 rounded focus:outline-none focus:border-gray-400" type="text" placeholder="john@example.com" />
+                    <input required ref={emailRef} name="email" className="w-full p-2 border-2 rounded focus:outline-none focus:border-gray-400" type="email" placeholder="john@example.com" />
                 </div>
                 <div className="px-4 py-2">
                     <label htmlFor="password" className="font-medium">Password</label>
