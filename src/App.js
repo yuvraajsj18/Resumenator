@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import Landing from './components/Landing'
 import Signup from './components/Signup'
 import Setup from './components/Setup'
+import Signin from './components/Signin'
 
 function App() {
 
@@ -21,6 +22,9 @@ function App() {
         </PrivateRoute>
         <Route path="/signup">
           <Signup />
+        </Route>
+        <Route path="/signin">
+          <Signin />
         </Route>
       </Switch>
       <Footer />

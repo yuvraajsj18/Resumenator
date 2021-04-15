@@ -10,22 +10,38 @@ export function useAuth() {
 export function AuthProvider(props) {
 	const [currentUser, setCurrentUser] = useState();
 	const [loading, setLoading] = useState(true); 
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((user) => {
-		setCurrentUser(user);
-		setLoading(false);
+			setCurrentUser(user);
+			setIsAuthenticated(Boolean(currentUser));
+			setLoading(false);
+		});
+		return () => {
+			unsubscribe();
+			setIsAuthenticated(Boolean(currentUser));
+		}
 	});
-		return unsubscribe;
-	}, []);
 
 	function signup(email, password) {
 		return auth.createUserWithEmailAndPassword(email, password);
 	}
 
+	function signout(){
+		return auth.signOut();
+	}
+
+	function signin(email, password) {
+		return auth.signInWithEmailAndPassword(email, password);
+	}
+
 	const value = {
 		currentUser,
+		isAuthenticated,
 		signup,
+		signout,
+		signin,
 	}
 
 	return (

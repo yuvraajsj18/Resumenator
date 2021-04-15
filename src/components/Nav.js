@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLocation ,Link } from 'react-router-dom'
+import Signout from './Signout'
 
 const Nav = () => {
     const location = useLocation();
@@ -18,7 +19,7 @@ const Nav = () => {
                 </>}
 
                 { ['/setup'].includes(location.pathname) && 
-                    <button class="mr-2 hover:border-b-2">Sign Out</button> // Make another component
+                    <Signout />
                 }
             </div>
         </nav>
