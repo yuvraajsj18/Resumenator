@@ -8,6 +8,7 @@ import Signup from './components/Signup'
 import Setup from './components/Setup'
 import Signin from './components/Signin'
 import ResetPassword from './components/ResetPassword'
+import Home from './components/Home';
 
 function App() {
 
@@ -30,6 +31,9 @@ function App() {
         <Route path="/reset-password">
           <ResetPassword />
         </Route>
+        <PrivateRoute path="/home">
+          <Home />
+        </PrivateRoute>
       </Switch>
       <Footer />
     </Router>

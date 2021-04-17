@@ -30,7 +30,7 @@ const Signin = () => {
         try {
             setLoading(true);
             await signin(emailRef.current.value, passwordRef.current.value);
-            history.push('/setup');
+            history.push('/home');
         } catch(error) {
             setLoading(false);
             setError(error.message);
@@ -43,7 +43,7 @@ const Signin = () => {
         try {
             setLoading(true);
             await signInWithGoogle();
-            history.push('/setup');
+            history.push('/home');
         } catch (error) {
             setLoading(false);
             setError(error.message);

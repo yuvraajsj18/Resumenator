@@ -10,7 +10,14 @@ const Nav = () => {
 
     return (
         <nav className="flex justify-between p-3 border-b bg-brand text-white">
-            <div className="logo text-lg cursor-pointer"><Link to="/home">RESUME<span className="px-1 bg-white text-brand">NATOR</span></Link></div>
+            <div className="logo text-lg cursor-pointer">
+                {
+                    isAuthenticated ?
+                        <Link to="/home">RESUME<span className="px-1 bg-white text-brand">NATOR</span></Link>
+                    :
+                        <Link to="/">RESUME<span className="px-1 bg-white text-brand">NATOR</span></Link>
+                }
+            </div>
             <div className="flex items-center">
                 { !isAuthenticated && <>
                     <button className="mr-2 hover:border-b-2">
@@ -23,8 +30,8 @@ const Nav = () => {
 
                 {
                     isAuthenticated && !['/setup'].includes(location.pathname)&& <>
-                        <button class="mr-2 hover:border-b-2">Resume</button>
-                        <button class="mr-2 hover:border-b-2">Profile</button> 
+                        <button className="mr-2 hover:border-b-2">Resume</button>
+                        <button className="mr-2 hover:border-b-2">Profile</button> 
                     </>
                 }
 

@@ -17,7 +17,7 @@ const Signup = () => {
 
     useEffect(() => {
         if(isAuthenticated) {
-            history.push('/setup');
+            history.push('/home');
         }
 
         document.title = "Sign Up | Resumenator";
@@ -42,7 +42,7 @@ const Signup = () => {
         try {
             setLoading(true);
             await signup(emailRef.current.value, passwordRef.current.value);
-            history.push('/setup');
+            history.push('/home');
         }
         catch (error) {
             setError(error.message);
