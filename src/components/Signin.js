@@ -17,7 +17,7 @@ const Signin = () => {
 
     useEffect(() => {
         if(isAuthenticated) {
-            history.push('/setup');
+            history.push('/home');
         }
 
         document.title = "Sign In | Resumenator";

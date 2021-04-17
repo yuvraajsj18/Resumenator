@@ -7,6 +7,7 @@ import Landing from './components/Landing'
 import Signup from './components/Signup'
 import Setup from './components/Setup'
 import Signin from './components/Signin'
+import ResetPassword from './components/ResetPassword'
 
 function App() {
 
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/signin">
           <Signin />
+        </Route>
+        <Route path="/reset-password">
+          <ResetPassword />
         </Route>
       </Switch>
       <Footer />

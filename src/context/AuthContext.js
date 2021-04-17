@@ -40,6 +40,10 @@ export function AuthProvider(props) {
         return auth.signInWithPopup(googleAuthProvider);
     }
 
+	const resetPassword = (email) => {
+		return auth.sendPasswordResetEmail(email);
+	}
+
 	const value = {
 		currentUser,
 		isAuthenticated,
@@ -47,6 +51,7 @@ export function AuthProvider(props) {
 		signout,
 		signin,
 		signInWithGoogle,
+		resetPassword,
 	}
 
 	return (

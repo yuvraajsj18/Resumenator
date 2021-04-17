@@ -1,15 +1,18 @@
 import React from 'react'
-import { useLocation ,Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import Signout from './Signout'
 
 const Nav = () => {
+
+    const { isAuthenticated } = useAuth();
     const location = useLocation();
 
     return (
         <nav className="flex justify-between p-3 border-b bg-brand text-white">
-            <div className="logo text-lg cursor-pointer">RESUME<span className="px-1 bg-white text-brand">NATOR</span></div>
+            <div className="logo text-lg cursor-pointer"><Link to="/home">RESUME<span className="px-1 bg-white text-brand">NATOR</span></Link></div>
             <div className="flex items-center">
-                { ['/', '/signup', '/signin'].includes(location.pathname) && <>
+                { !isAuthenticated && <>
                     <button className="mr-2 hover:border-b-2">
                         <Link to="/signin">Sign In</Link>
                     </button>
@@ -18,7 +21,14 @@ const Nav = () => {
                     </button>
                 </>}
 
-                { ['/setup'].includes(location.pathname) && 
+                {
+                    isAuthenticated && !['/setup'].includes(location.pathname)&& <>
+                        <button class="mr-2 hover:border-b-2">Resume</button>
+                        <button class="mr-2 hover:border-b-2">Profile</button> 
+                    </>
+                }
+
+                {  isAuthenticated &&
                     <Signout />
                 }
             </div>
