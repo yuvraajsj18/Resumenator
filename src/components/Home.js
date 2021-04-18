@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { db } from '../firebase'
 import { useAuth } from '../context/AuthContext'
 
@@ -8,6 +8,7 @@ const Home = () => {
     const { currentUser } = useAuth();
     const history = useHistory();
     const [jobs, setJobs] = useState([]);
+    const [haveResume, setHaveResume] = useState(false);
 
     useEffect(() => {
         let unsub = null;
@@ -30,6 +31,23 @@ const Home = () => {
 
         isSetupComplete();
 
+        const isCreatedResume = async () => {        
+            const resumeDocRef = db.collection("resumes").doc(currentUser.uid);
+
+            try {
+                const resumeDoc = await resumeDocRef.get();
+
+                if (resumeDoc.exists) {
+                    setHaveResume(true);
+                }
+
+            } catch(error) {
+                console.log(error.message);
+            }
+        }
+
+        isCreatedResume();
+
         const getJobs = async () => {
             const jobsCollectionRef = db.collection("jobs");
             const jobList = [];
@@ -44,7 +62,9 @@ const Home = () => {
             });
         }
 
-        getJobs();
+        if (haveResume) {
+            getJobs();
+        }
 
         return unsub;
     });
@@ -52,18 +72,24 @@ const Home = () => {
     return (<>
         <section className="mt-8">
             <div>
-                <button className="block mx-auto bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-72 px-5 py-3 text-lg font-medium focus:outline-none">Create Resume</button>
+                <button className="block mx-auto bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-72 px-5 py-3 text-lg font-medium focus:outline-none">
+                    {
+                        haveResume 
+                        ?
+                        <Link to="/edit-resume">Edit Resume</Link>
+                        :
+                        <Link to="/create-resume">Create Resume</Link>
+                    }
+                </button>
             </div>
         </section>
     
         <section className="min-h-screen">
             <h1 className="mt-8 text-3xl text-center font-medium">Jobs For You</h1>
     
-            <div>
-                <div className="mt-4 p-2 max-w-xs sm:max-w-lg mx-auto rounded-md text-center mb-3 bg-blue-100 text-blue-900">You have not created a resume yet! <a href="" className="text-brand-dark font-medium underline">Create a resume now.</a></div>
-            </div>
-
             {
+                haveResume 
+                ?
                 jobs.length > 0 
                 ?
                 <ul className="flex flex-wrap justify-center">
@@ -104,6 +130,15 @@ const Home = () => {
                 </ul>
                 :                
                 <div className="mt-4 p-2 max-w-xs sm:max-w-lg mx-auto rounded-md text-center mb-3 bg-blue-100 text-blue-900">Oops! No Jobs Found.</div>
+                :
+                <div>
+                    <div className="mt-4 p-2 max-w-xs sm:max-w-lg mx-auto rounded-md text-center mb-3 bg-blue-100 text-blue-900">
+                        You have not created a resume yet! 
+                        <Link to="/create-resume" className="text-brand-dark font-medium underline">
+                            Create a resume now.
+                        </Link>
+                    </div>
+                </div>
             }
         </section>
         </>

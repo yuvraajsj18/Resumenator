@@ -9,6 +9,7 @@ import Setup from './components/Setup'
 import Signin from './components/Signin'
 import ResetPassword from './components/ResetPassword'
 import Home from './components/Home';
+import CreateResume from './components/CreateResume';
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <PrivateRoute path="/home">
           <Home />
+        </PrivateRoute>
+        <PrivateRoute path="/create-resume">
+          <CreateResume />
         </PrivateRoute>
       </Switch>
       <Footer />
