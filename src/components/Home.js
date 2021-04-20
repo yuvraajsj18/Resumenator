@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import { db } from '../firebase'
 import { useAuth } from '../context/AuthContext'
+import { useResume } from '../context/ResumeContext'
+import { useJob } from '../context/JobContext'
 
 const Home = () => {
 
     const { currentUser } = useAuth();
     const history = useHistory();
-    const [jobs, setJobs] = useState([]);
-    const [haveResume, setHaveResume] = useState(false);
+    const { resumeDetails } = useResume();
+    const { filteredJobs, } = useJob();
 
     useEffect(() => {
-        let unsub = null;
         document.title = "Home | Resumenator";
 
         const isSetupComplete = async () => {        
@@ -29,44 +30,10 @@ const Home = () => {
             }
         }
 
+        console.log(resumeDetails);
+        console.log(filteredJobs);
+
         isSetupComplete();
-
-        const isCreatedResume = async () => {        
-            const resumeDocRef = db.collection("resumes").doc(currentUser.uid);
-
-            try {
-                const resumeDoc = await resumeDocRef.get();
-
-                if (resumeDoc.exists) {
-                    setHaveResume(true);
-                }
-
-            } catch(error) {
-                console.log(error.message);
-            }
-        }
-
-        isCreatedResume();
-
-        const getJobs = async () => {
-            const jobsCollectionRef = db.collection("jobs");
-            const jobList = [];
-
-            unsub = await jobsCollectionRef.onSnapshot( snapshot => {
-
-                snapshot.forEach(doc => {
-                    jobList.push({id: doc.id, ...doc.data()});
-                });
-
-                setJobs(jobList);
-            });
-        }
-
-        if (haveResume) {
-            getJobs();
-        }
-
-        return unsub;
     });
 
     return (<>
@@ -74,7 +41,7 @@ const Home = () => {
             <div>
                 <button className="block mx-auto bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-72 px-5 py-3 text-lg font-medium focus:outline-none">
                     {
-                        haveResume 
+                        resumeDetails 
                         ?
                         <Link to="/edit-resume">Edit Resume</Link>
                         :
@@ -88,38 +55,42 @@ const Home = () => {
             <h1 className="mt-8 text-3xl text-center font-medium">Jobs For You</h1>
     
             {
-                haveResume 
+                resumeDetails 
                 ?
-                jobs.length > 0 
+                filteredJobs.length > 0 
                 ?
                 <ul className="flex flex-wrap justify-center">
                     {        
-                        jobs.map(job => {
-
-                            const indexOfFirstFullStop = job.description.indexOf('.');                  
-
-                            /*
-                                Instead of first 120 characters for job summary, now we are showing it till the first
-                                full stop. 
-
-                                Reason for not showing 120 characters:
-                                    - 120 characters may end at a character of a word
-                                
-                                Reason for first full stop:
-                                    - assuming, that every description includes atleast one line.
-                            */
+                        filteredJobs.map(job => {
 
                             return (                        
                                 <li className="mx-3" key={job.id}>
                                     <div className="m-6 max-w-xs sm:max-w-md sm:w-full shadow-md hover:shadow-lg text-center border rounded-md px-3 py-4">
                                         <h2 className="text-2xl">{job.title}</h2>
-                                        <p className="break-words my-1">{job.description.substring(0, indexOfFirstFullStop+1)}</p>
+                                        <p className="break-words my-1">
+                                            {
+                                                job.description.substring(0, 120)
+                                                (job.description.length > 120) && '...'
+                                            }
+                                        </p>
                                         <div className="my-1">Experience: {job.experience_required}</div>
                                         <div className="my-1">
-                                            Skills:{' '}
-                                            <span className="bg-red-200 rounded-full px-2 py-1 text-sm">{job.skills_required[0]}</span>
-                                            <span className="bg-green-200 rounded-full px-2 py-1 text-sm">{job.skills_required[1]}</span>
-                                            <span className="bg-blue-200 rounded-full px-2 py-1 text-sm">{job.skills_required[2]}</span>
+                                            Skills:
+                                            {
+                                                job.skills_required[0] 
+                                                && 
+                                                <span className="mx-1 bg-red-200 rounded-full px-2 py-1 text-sm">{job.skills_required[0]}</span>
+                                            }
+                                            {    
+                                                job.skills_required[1] 
+                                                && 
+                                                <span className="mx-1 bg-green-200 rounded-full px-2 py-1 text-sm">{job.skills_required[1]}</span>
+                                            }
+                                            {                      
+                                                job.skills_required[2] 
+                                                && 
+                                                <span className="mx-1 bg-blue-200 rounded-full px-2 py-1 text-sm">{job.skills_required[2]}</span>
+                                            }
                                         </div>
                                         <button className="border-2 mt-3 px-8 mb-2 py-1 rounded-md text-brand hover:bg-brand hover:text-white font-medium">See More Details</button>
                                     </div>
