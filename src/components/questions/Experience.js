@@ -1,4 +1,5 @@
 import React from 'react'
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 const Experience = () => {
     return (
@@ -25,7 +26,9 @@ const Experience = () => {
                 </div>
 
                 <div className="text-center mt-2">
-                    <button className="border rounded-full text-brand-dark w-8 text-2xl border-brand">+</button>
+                    <button className="text-brand hover:text-brand-dark text-4xl focus:outline-none">
+                        <AiOutlinePlusCircle />
+                    </button>
                 </div>
             </div>
         </div>
