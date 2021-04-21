@@ -6,7 +6,7 @@ const Socials = () => {
     return (
         <div className="flex flex-col items-center mt-8">
             <h2 className="text-3xl my-3 text-center">Enter your social handles</h2>
-            <form className="text-lg max-w-xs sm:max-w-xl w-full">
+            <div className="text-lg max-w-xs sm:max-w-xl w-full">
                 <div className="py-3">
                     <input className="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Personal Website" />
                 </div>
@@ -24,7 +24,7 @@ const Socials = () => {
                     <PreviousButton />
                     <NextButton isDisable />
                 </div>
-            </form>
+            </div>
         </div>
     )
 }

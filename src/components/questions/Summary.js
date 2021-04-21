@@ -6,9 +6,9 @@ const Summary = () => {
     return (
         <div className="flex flex-col items-center mt-8">
             <h2 className="text-3xl my-3 text-center">How can you describe yourself?</h2>
-            <form className="text-lg max-w-xs sm:max-w-none">
+            <div className="text-lg max-w-xs sm:max-w-none">
                 <div className="py-3">
-                    <textarea className="w-full border-b-2 focus:border-brand focus:outline-none" cols="50" rows="6" maxlength="280" placeholder="Start typing"></textarea>
+                    <textarea className="w-full border-b-2 focus:border-brand focus:outline-none" cols="50" rows="6" maxLength="280" placeholder="Start typing"></textarea>
                     <div className="text-sm">Max word length is 280 characters.</div>
                 </div>
 
@@ -16,7 +16,7 @@ const Summary = () => {
                     <PreviousButton />
                     <NextButton />
                 </div>
-            </form>
+            </div>
         </div>
     )
 }
