@@ -1,6 +1,4 @@
 import React from 'react'
-import PreviousButton from './PreviousButton'
-import NextButton from './NextButton'
 
 const Skills = () => {
     return (
@@ -20,11 +18,6 @@ const Skills = () => {
                             python
                         </li>
                     </ul>
-                </div>
-
-                <div className="flex justify-between mt-5">
-                    <PreviousButton />
-                    <NextButton />
                 </div>
             </div>
         </div>

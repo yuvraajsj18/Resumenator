@@ -7,10 +7,10 @@ import NextButton from './questions/NextButton'
 const CreateResume = () => {
     
     const [quesNo, setQuesNo] = useState(0);
+    const no_of_questions = 10;
 
     useEffect(() => {
         document.title = "Create Resume | Resumenator";
-        console.log(quesNo)
     });
 
     return (
@@ -18,9 +18,9 @@ const CreateResume = () => {
             <h1 className="text-5xl sm:text-6xl text-center mt-5">My Resume</h1>
 
             <Questions quesNo={quesNo}/>
-            <div className="flex justify-between mt-5 max-w-xs sm:max-w-xl mx-auto">
-                <PreviousButton isDisable setQuesNo={setQuesNo}/>
-                <NextButton setQuesNo={setQuesNo}/>
+            <div className="flex justify-between mt-5 max-w-xs sm:max-w-sm mx-auto">
+                <PreviousButton isDisable={quesNo === 0} setQuesNo={setQuesNo}/>
+                <NextButton isDisable={quesNo === (no_of_questions-1)} setQuesNo={setQuesNo}/>
             </div>
 
             <div className="mt-8">

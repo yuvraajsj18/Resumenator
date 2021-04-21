@@ -1,6 +1,4 @@
 import React from 'react'
-import PreviousButton from './PreviousButton'
-import NextButton from './NextButton'
 
 const Achievements = () => {
     return (
@@ -20,11 +18,6 @@ const Achievements = () => {
                             python
                         </li>
                     </ul>
-                    </div>
-
-                <div className="flex justify-between mt-5">
-                    <PreviousButton />
-                    <NextButton />
                 </div>
             </div>
         </div>

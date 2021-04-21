@@ -1,6 +1,4 @@
 import React from 'react'
-import PreviousButton from './PreviousButton'
-import NextButton from './NextButton'
 
 const Certificate = () => {
     return (
@@ -11,17 +9,12 @@ const Certificate = () => {
                     <input className="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Certificate Name" />
                 </div>
                 <div className="py-3">
-                    <textarea className="w-full border-b-2 focus:border-brand focus:outline-none" cols="50" rows="6" maxlength="180" placeholder="Description"></textarea>
+                    <textarea className="w-full border-b-2 focus:border-brand focus:outline-none" cols="50" rows="6" maxLength="180" placeholder="Description"></textarea>
                     <div className="text-sm">Max word length is 180 characters.</div>
                 </div>
 
                 <div className="text-center mt-2">
                     <button className="border rounded-full text-brand-dark w-8 text-2xl border-brand">+</button>
-                </div>
-
-                <div className="flex justify-between mt-5">
-                    <PreviousButton />
-                    <NextButton />
                 </div>
             </div>
         </div>

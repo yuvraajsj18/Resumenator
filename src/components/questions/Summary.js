@@ -1,6 +1,4 @@
 import React from 'react'
-import PreviousButton from './PreviousButton'
-import NextButton from './NextButton'
 
 const Summary = () => {
     return (
@@ -10,11 +8,6 @@ const Summary = () => {
                 <div className="py-3">
                     <textarea className="w-full border-b-2 focus:border-brand focus:outline-none" cols="50" rows="6" maxLength="280" placeholder="Start typing"></textarea>
                     <div className="text-sm">Max word length is 280 characters.</div>
-                </div>
-
-                <div className="flex justify-between mt-5">
-                    <PreviousButton />
-                    <NextButton />
                 </div>
             </div>
         </div>

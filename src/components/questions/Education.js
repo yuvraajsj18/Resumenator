@@ -1,6 +1,4 @@
 import React from 'react'
-import PreviousButton from './PreviousButton'
-import NextButton from './NextButton'
 
 const Education = () => {
     return (
@@ -27,11 +25,6 @@ const Education = () => {
     
                 <div className="text-center mt-2">
                     <button className="border rounded-full text-brand-dark w-8 text-2xl border-brand">+</button>
-                </div>
-    
-                <div className="flex justify-between mt-5">
-                    <PreviousButton />
-                    <NextButton />
                 </div>
             </div>
         </div>

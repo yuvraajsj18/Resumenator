@@ -1,6 +1,4 @@
 import React from 'react'
-import PreviousButton from './PreviousButton'
-import NextButton from './NextButton'
 
 const Socials = () => {
     return (
@@ -18,11 +16,6 @@ const Socials = () => {
                 </div>
                 <div className="py-3">
                     <input className="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Instagram (only username)" />
-                </div>
-
-                <div className="flex justify-between mt-5">
-                    <PreviousButton />
-                    <NextButton isDisable />
                 </div>
             </div>
         </div>
