@@ -18,7 +18,7 @@ const CreateResume = () => {
             <h1 className="text-5xl sm:text-6xl text-center mt-5">My Resume</h1>
 
             <Questions quesNo={quesNo}/>
-            <div className="flex justify-between mt-5">
+            <div className="flex justify-between mt-5 max-w-xs sm:max-w-xl mx-auto">
                 <PreviousButton isDisable setQuesNo={setQuesNo}/>
                 <NextButton setQuesNo={setQuesNo}/>
             </div>
