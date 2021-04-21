@@ -43,7 +43,7 @@ function App() {
             </ResumeProvider>
         </PrivateRoute>        
 
-        <PrivateRoute path="/create-resume">
+        <PrivateRoute path="/create-resume/:quesNo">
           <CreateResume />
         </PrivateRoute>
       </Switch>
