@@ -9,8 +9,8 @@ const Home = () => {
 
     const { currentUser } = useAuth();
     const history = useHistory();
-    const { resumeDetails } = useResume();
     const { filteredJobs, } = useJob();
+    const { resumeDetails } = useResume();
 
     useEffect(() => {
         document.title = "Home | Resumenator";
@@ -30,9 +30,6 @@ const Home = () => {
             }
         }
 
-        console.log(resumeDetails);
-        console.log(filteredJobs);
-
         isSetupComplete();
     });
 
@@ -41,7 +38,7 @@ const Home = () => {
             <div>
                 <button className="block mx-auto bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-72 px-5 py-3 text-lg font-medium focus:outline-none">
                     {
-                        resumeDetails 
+                        !Object.keys(resumeDetails).length === 0 && !resumeDetails.constructor === Object
                         ?
                         <Link to="/edit-resume">Edit Resume</Link>
                         :
@@ -55,7 +52,7 @@ const Home = () => {
             <h1 className="mt-8 text-3xl text-center font-medium">Jobs For You</h1>
     
             {
-                resumeDetails 
+                !Object.keys(resumeDetails).length === 0 && !resumeDetails.constructor === Object
                 ?
                 filteredJobs.length > 0 
                 ?
@@ -105,7 +102,7 @@ const Home = () => {
                 <div>
                     <div className="mt-4 p-2 max-w-xs sm:max-w-lg mx-auto rounded-md text-center mb-3 bg-blue-100 text-blue-900">
                         You have not created a resume yet! 
-                        <Link to="/create-resume" className="text-brand-dark font-medium underline">
+                        <Link to="/create-resume" className="text-brand-dark ml-1 font-medium underline">
                             Create a resume now.
                         </Link>
                     </div>

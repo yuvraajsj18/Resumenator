@@ -15,9 +15,6 @@ export function ResumeProvider(props) {
     const { currentUser } = useAuth();
 
 	useEffect(() => {
-
-        console.log('Resume Start');
-
         const getResumeDetails = async () => {        
             const resumeDocRef = db.collection("resumes").doc(currentUser.uid);
             try {
@@ -25,16 +22,14 @@ export function ResumeProvider(props) {
 
                 if (resumeDoc.exists) {
                     setResumeDetails({id: resumeDoc.id, ...resumeDoc.data()});
-                    setLoading(false);
                 }
-
             } catch(error) {
                 console.log(error.message);
             }
+            finally {
+                setLoading(false);
+            }
         }
-
-        console.log('Resume End');
-        console.log(resumeDetails);
 
         getResumeDetails();
 	});

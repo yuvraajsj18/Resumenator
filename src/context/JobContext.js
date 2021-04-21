@@ -15,18 +15,16 @@ export function JobProvider(props) {
     const { resumeDetails } = useResume();
 
 	useEffect(() => {
-        console.log('Job Start');
-
         const unsubJobSnapshot = getJobsFilteredWithSkills(resumeDetails.skills);
         setLoading(false);
-
-        console.log('Job End');
-        console.log(filteredJobs);
 
         return unsubJobSnapshot;
 	}, [resumeDetails.skills, filteredJobs]);
 
-    const getJobsFilteredWithSkills = async (skills) => {        
+    const getJobsFilteredWithSkills = async (skills) => {   
+        if (!skills)
+            return;
+
         const jobsCollectionRef = db.collection("jobs")
                                     .where('skills_required', 'array-contains-any', skills);
         const jobList = [];
@@ -50,7 +48,7 @@ export function JobProvider(props) {
 
 	return (
 		<JobContext.Provider value={value}>
-			{!loading && props.children }
+			{ !loading && props.children }
 		</JobContext.Provider>
 	)
 }

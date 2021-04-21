@@ -1,12 +1,20 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
+import { Link, useHistory } from 'react-router-dom'
 
 import ResumeIllustration from '../assets/illustrations/ResumeIllustration.svg'
 import InterviewIllustration from '../assets/illustrations/interview.svg'
 
 const Landing = () => {
 
+    const { isAuthenticated } = useAuth();
+    const history = useHistory();
+
     useEffect(() => {
+        if (isAuthenticated) {
+            history.push('/home');
+        }
+
         document.title = "Resumenator";
     });
 

@@ -13,10 +13,10 @@ const Signin = () => {
     const [loading, setLoading] = useState(false);
 
     const history = useHistory();
-    const { isAuthenticated, signin, signInWithGoogle } = useAuth();
+    const { currentUser, signin, signInWithGoogle } = useAuth();
 
     useEffect(() => {
-        if(isAuthenticated) {
+        if(currentUser) {
             history.push('/home');
         }
 

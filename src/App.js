@@ -35,19 +35,13 @@ function App() {
           <ResetPassword />
         </Route>
 
-        <ResumeProvider>
-          <JobProvider>
-            <PrivateRoute path="/home">
-              <Home />
-            </PrivateRoute>
-          </JobProvider>
-
-          {/* <PrivateRoute path="/edit-resume">
-            <EditResume />
-          </PrivateRoute> */}
-        </ResumeProvider>
-        
-
+        <PrivateRoute path="/home">
+          <ResumeProvider>
+            <JobProvider>
+                <Home />
+            </JobProvider>
+            </ResumeProvider>
+        </PrivateRoute>        
 
         <PrivateRoute path="/create-resume">
           <CreateResume />
