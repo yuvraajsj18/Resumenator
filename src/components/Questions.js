@@ -11,19 +11,19 @@ import Organizations from './questions/Organizations'
 import Achievements from './questions/Achievements'
 import Socials from './questions/Socials'
 
-const Questions = ({ quesNo, setTempResumeDetails }) => {
+const Questions = ({ quesNo, setTempResumeDetails, setIsNextDisable }) => {
     
     const questions = [
-        <BasicInfo setTempResumeDetails={setTempResumeDetails}/>,
-        <Summary setTempResumeDetails={setTempResumeDetails}/>,
-        <Education setTempResumeDetails={setTempResumeDetails}/>,
-        <Experience setTempResumeDetails={setTempResumeDetails}/>,
-        <Skills setTempResumeDetails={setTempResumeDetails}/>,
-        <Project setTempResumeDetails={setTempResumeDetails}/>,
-        <Certificate setTempResumeDetails={setTempResumeDetails}/>,
-        <Organizations setTempResumeDetails={setTempResumeDetails}/>,
-        <Achievements setTempResumeDetails={setTempResumeDetails}/>,
-        <Socials setTempResumeDetails={setTempResumeDetails}/>
+        <BasicInfo setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable}/>,
+        <Summary setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable}/>,
+        <Education setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable}/>,
+        <Experience setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable}/>,
+        <Skills setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable}/>,
+        <Project setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable}/>,
+        <Certificate setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable}/>,
+        <Organizations setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable}/>,
+        <Achievements setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable}/>,
+        <Socials setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable}/>
     ]
 
     return questions[quesNo];
