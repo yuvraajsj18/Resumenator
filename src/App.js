@@ -44,7 +44,9 @@ function App() {
         </PrivateRoute>        
 
         <PrivateRoute path="/create-resume">
-          <CreateResume />
+          <ResumeProvider>
+            <CreateResume />
+          </ResumeProvider>
         </PrivateRoute>
       </Switch>
       <Footer />

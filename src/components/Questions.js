@@ -11,19 +11,19 @@ import Organizations from './questions/Organizations'
 import Achievements from './questions/Achievements'
 import Socials from './questions/Socials'
 
-const Questions = ({ quesNo }) => {
+const Questions = ({ quesNo, setTempResumeDetails }) => {
     
     const questions = [
-        <BasicInfo/>,
-        <Summary/>,
-        <Education/>,
-        <Experience/>,
-        <Skills/>,
-        <Project/>,
-        <Certificate/>,
-        <Organizations/>,
-        <Achievements/>,
-        <Socials/>
+        <BasicInfo setTempResumeDetails={setTempResumeDetails}/>,
+        <Summary setTempResumeDetails={setTempResumeDetails}/>,
+        <Education setTempResumeDetails={setTempResumeDetails}/>,
+        <Experience setTempResumeDetails={setTempResumeDetails}/>,
+        <Skills setTempResumeDetails={setTempResumeDetails}/>,
+        <Project setTempResumeDetails={setTempResumeDetails}/>,
+        <Certificate setTempResumeDetails={setTempResumeDetails}/>,
+        <Organizations setTempResumeDetails={setTempResumeDetails}/>,
+        <Achievements setTempResumeDetails={setTempResumeDetails}/>,
+        <Socials setTempResumeDetails={setTempResumeDetails}/>
     ]
 
     return questions[quesNo];

@@ -12,6 +12,7 @@ export function ResumeProvider(props) {
 
     const [loading, setLoading] = useState(true);
     const [resumeDetails, setResumeDetails] = useState({});
+    const [tempResumeDetails, setTempResumeDetails] = useState({});
     const { currentUser } = useAuth();
 
 	useEffect(() => {
@@ -36,6 +37,7 @@ export function ResumeProvider(props) {
 
 	const value = {
 		resumeDetails,
+        setTempResumeDetails,
 	}
 
 	return (
