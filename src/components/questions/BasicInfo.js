@@ -11,6 +11,8 @@ const BasicInfo = ({ setTempResumeDetails, setIsNextDisable, tempResumeDetails }
     const cityRef = useRef();
     const countryRef = useRef();
 
+    const [basicInfo, setBasicInfo] = useState({});
+
     const isRequiredInputEmpty = () => {
 
         return !(
@@ -31,7 +33,10 @@ const BasicInfo = ({ setTempResumeDetails, setIsNextDisable, tempResumeDetails }
         else {
             setIsNextDisable(false);
         }
-        setTempResumeDetails(prevDetails => ({...prevDetails, [e.target.name]: e.target.value}));
+
+        setBasicInfo(prevDetails => ({...prevDetails, [e.target.name]: e.target.value}))
+
+        setTempResumeDetails(prevDetails => ({...prevDetails, basicInfo: }));
     }
 
     return (

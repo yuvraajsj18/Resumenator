@@ -1,19 +1,54 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
-const Education = () => {
+const Education = ({ setTempResumeDetails, setIsNextDisable, tempResumeDetails }) => {
+
+    const instituteNameRef = useRef();
+    const courseRef = useRef();
+    const scoreRef = useRef();
+    const graduationMonth = useRef();
+    const cityRef = useRef();
+    const countryRef = useRef();
+
+    const isRequiredInputEmpty = () => {
+
+        return !(
+            instituteNameRef.current.value &&
+            courseRef.current.value &&
+            scoreRef.current.value &&
+            graduationMonth.current.value &&
+            cityRef.current.value &&
+            countryRef.current.value
+        );
+    }
+
+    const handleChange = (e) => {
+        if (isRequiredInputEmpty()) {
+            setIsNextDisable(true);
+        }
+        else {
+            setIsNextDisable(false);
+        }
+
+        resumeDetails = {
+
+        }
+
+        setTempResumeDetails(prevDetails => ({...prevDetails, [e.target.name]: e.target.value}));
+    }
+
     return (
         <div className="flex flex-col items-center mt-8">
             <h2 className="text-3xl my-3 text-center">Where did you study?</h2>
             <div className="text-lg max-w-xs sm:max-w-none">
                 <div className="py-3">
-                    <input className="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Institute Name" />
+                    <input ref={instituteNameRef} name="institute_name" value={tempResumeDetails.institute_name} className="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Institute Name" />
                 </div>
                 <div className="py-3">
-                    <input className="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Course" />
+                    <input ref={courseRef} name="course" value={tempResumeDetails.course} className="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Course" />
                 </div>
                 <div className="py-3">
-                    <input className="border-b-2 focus:border-brand focus:outline-none mr-8 w-full" type="text" placeholder="Grade/CGPA/Percentage" />
+                    <input ref={score} name="score" value={tempResumeDetails.score} className="border-b-2 focus:border-brand focus:outline-none mr-8 w-full" type="text" placeholder="Grade/CGPA/Percentage" />
                 </div>
                 <div className="py-3">
                     <label className="text-sm text-gray-800 block">Graduation Month</label>
