@@ -37,6 +37,7 @@ export function ResumeProvider(props) {
 
 	const value = {
 		resumeDetails,
+        tempResumeDetails,
         setTempResumeDetails,
 	}
 

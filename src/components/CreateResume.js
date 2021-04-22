@@ -9,7 +9,7 @@ const CreateResume = () => {
     
     const [quesNo, setQuesNo] = useState(0);
     const no_of_questions = 10;
-    const { setTempResumeDetails } = useResume();
+    const { setTempResumeDetails, tempResumeDetails } = useResume();
     const [isNextDisable, setIsNextDisable] = useState(true);
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const CreateResume = () => {
         <section className="min-h-screen overflow-x-hidden">
             <h1 className="text-5xl sm:text-6xl text-center mt-5">My Resume</h1>
 
-            <Questions quesNo={quesNo} setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable}/>
+            <Questions quesNo={quesNo} setTempResumeDetails={setTempResumeDetails} tempResumeDetails={tempResumeDetails} setIsNextDisable={setIsNextDisable}/>
             <div className="flex justify-between mt-5 max-w-xs sm:max-w-sm mx-auto">
                 <PreviousButton isDisable={quesNo === 0} setQuesNo={setQuesNo}/>
                 <NextButton isDisable={quesNo === (no_of_questions-1) || isNextDisable} setQuesNo={setQuesNo}/>
