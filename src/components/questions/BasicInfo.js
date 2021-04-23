@@ -16,7 +16,7 @@ const BasicInfo = ({ setQuesNo, tempResumeDetails, setTempResumeDetails }) => {
                                                     });
 
     const handleChange = (e) => {
-        setBasicInfoDetails(prevDetails => ({...prevDetails, [e.target.name]: e.target.value}))
+        setBasicInfoDetails(prevDetails => ({...prevDetails, [e.target.name]: e.target.value}));
     }
 
     const handleNextClick = (e) => {
