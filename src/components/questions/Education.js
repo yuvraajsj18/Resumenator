@@ -1,86 +1,125 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { AiOutlinePlusCircle } from "react-icons/ai";
+import { AiFillDelete } from "react-icons/ai";
 
-const Education = ({ setTempResumeDetails, setIsNextDisable, tempResumeDetails }) => {
+import PreviousButton from './PreviousButton'
+import NextButton from './NextButton'
 
-    const instituteNameRef = useRef();
-    const courseRef = useRef();
-    const scoreRef = useRef();
-    const graduationMonthRef = useRef();
-    const cityRef = useRef();
-    const countryRef = useRef();
+const Education = ({ setQuesNo, tempResumeDetails, setTempResumeDetails }) => {
 
-    const [educationDetails, setEducationDetails] = useState([]);
-
+    const [educationDetailsList, setEducationDetailsList] = useState(tempResumeDetails?.education ?? []);
+    const [educationDetails, setEducationDetails] = useState({
+                                                        'institute_name': '',
+                                                        'course': '',
+                                                        'score': '',
+                                                        'month': '',
+                                                        'city': '',
+                                                        'country': '',
+                                                    });
+    
     const handleChange = (e) => {
-        if (e.target.value.length === 0) {
-            setIsNextDisable(false);
-        }
-        else {
-            setIsNextDisable(true);
-        }
+        setEducationDetails(prevDetails => ({...prevDetails, [e.target.name]: e.target.value}));
     }
+
+    const handleNextClick = (e) => {
+        e.preventDefault();
+        setTempResumeDetails(prevDetails => ({...prevDetails, education: educationDetailsList}));
+        setQuesNo(prevQuesNo => prevQuesNo + 1);
+    };
 
     const handlePlusClick = () => {
+        for (const key in educationDetails) {
+            if (educationDetails[key].length === 0) {
+                return;
+            }
+        }
 
-        console.log(educationDetails);
+        setEducationDetailsList(prevList => [...prevList, educationDetails]);
+    };
 
-        setEducationDetails(prevDetails => ([...prevDetails, {
-            institute_name: instituteNameRef.current.value, 
-            course: courseRef.current.value, 
-            score: scoreRef.current.value, 
-            graduation_month: graduationMonthRef.current.value, 
-            city: cityRef.current.value, 
-            country: countryRef.current.value
-        }]))
-
-        console.log(educationDetails);
-
-        setTempResumeDetails(prevDetails => ({...prevDetails, education: educationDetails}));
-
-        console.log(educationDetails);
-
-        instituteNameRef.current.value = '';
-        courseRef.current.value = '';
-        scoreRef.current.value = '';
-        graduationMonthRef.current.value = ''; 
-        cityRef.current.value = '';
-        countryRef.current.value = '';
+    const handleDelete = (indexToDelete) => {
+        setEducationDetailsList(prevList => prevList.filter((value, index) => {
+            if (indexToDelete === index)
+                return false;
+            return true;
+        }));
     }
-
+    
     return (
         <div className="flex flex-col items-center mt-8">
             <h2 className="text-3xl my-3 text-center">Where did you study?</h2>
-            <div className="text-lg max-w-xs sm:max-w-none">
+            <form className="text-lg max-w-xs sm:max-w-none" onSubmit={(e) => handleNextClick(e)}>
                 <div className="py-3">
-                    <input onChange={handleChange} ref={instituteNameRef} name="institute_name" className="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Institute Name" />
+                    <input name="institute_name" onChange={handleChange} value={educationDetails.institute_name} className="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Institute Name" />
                 </div>
                 <div className="py-3">
-                    <input onChange={handleChange} ref={courseRef} name="course" className="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Course" />
+                    <input name="course"  onChange={handleChange} value={educationDetails.course} className="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Course" />
                 </div>
                 <div className="py-3">
-                    <input onChange={handleChange} ref={scoreRef} name="score" className="border-b-2 focus:border-brand focus:outline-none mr-8 w-full" type="text" placeholder="Grade/CGPA/Percentage" />
+                    <input name="score" onChange={handleChange} value={educationDetails.score} className="border-b-2 focus:border-brand focus:outline-none mr-8 w-full" type="text" placeholder="Grade/CGPA/Percentage" />
                 </div>
                 <div className="py-3">
                     <label className="text-sm text-gray-800 block">Graduation Month</label>
-                    <input onChange={handleChange} ref={graduationMonthRef} name="month" className="border-b-2 focus:border-brand focus:outline-none w-full" type="month" />
+                    <input name="month" onChange={handleChange} value={educationDetails.month} className="border-b-2 focus:border-brand focus:outline-none w-full" type="month" />
                 </div>
                 <div className="py-3">
-                    <input onChange={handleChange} ref={cityRef} name="city" className="border-b-2 focus:border-brand focus:outline-none mr-8 w-full sm:w-auto mb-3 sm:mb-0" type="text" placeholder="City" />
-                    <input onChange={handleChange} ref={countryRef} name="country" className="border-b-2 focus:border-brand focus:outline-none w-full sm:w-auto" type="text" placeholder="Country" />
+                    <input name="city" onChange={handleChange} value={educationDetails.city} className="border-b-2 focus:border-brand focus:outline-none mr-8 w-full sm:w-auto mb-3 sm:mb-0" type="text" placeholder="City" />
+                    <input name="country" onChange={handleChange} value={educationDetails.country} className="border-b-2 focus:border-brand focus:outline-none w-full sm:w-auto" type="text" placeholder="Country" />
                 </div>
 
-                <div className="text-center mt-2">
+                <div className="flex justify-between mt-5 max-w-xs sm:max-w-sm mx-auto">
+                    <PreviousButton setQuesNo={setQuesNo}/>
+                    <NextButton />
+                </div>
+            </form>
+
+            <div className="text-center mt-2">
                     <button onClick={handlePlusClick} className="text-brand hover:text-brand-dark text-4xl focus:outline-none">
                         <AiOutlinePlusCircle />
                     </button>
                     <div className="text-sm">
                         Click to add Education
                     </div>
-                </div>
+            </div>
+
+            <div className="mt-5 max-w-xs sm:max-w-lg w-full">
+                {
+                    educationDetailsList.length !== 0 &&
+                    <h2 className="text-3xl text-center my-5">Education</h2>
+                }
+                <ul>
+                    {
+                        educationDetailsList.map((education, index) => {
+                            return (
+                                <li key={index} className="mb-2 flex flex-col">
+                                    <button onClick={() => handleDelete(index)} className="self-end text-red-600 text-lg"><AiFillDelete /></button>
+                                    <div className="flex justify-between">
+                                        <h3 className="text-lg">{education.institute_name}</h3>
+                                        <span className="">{education.score}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <div>
+                                            <span>{education.course}&nbsp;</span>
+                                            <span>{education.city}, {education.country}</span>
+                                        </div> 
+                                        <span>{education.month}</span>
+                                    </div>
+                              </li>
+                            )
+                        })
+                    }
+                </ul>
             </div>
         </div>
     )
 }
+
+{/* <li>
+<div className="">{education.institute_name}</div>
+<div className="">{education.course}</div>
+<div className="">{education.score}</div>
+<div className="">{education.month}</div>
+<div className=""></div>
+</li> */}
 
 export default Education
