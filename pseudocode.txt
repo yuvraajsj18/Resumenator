@@ -17,6 +17,20 @@ function create_resume():
 
     for question in questions:
         display_question(question)
-        resumeDetails += take_input();
+
+        answer = take_input()
+
+        if not validate_answer(answer):
+            show_error_message()
+            ask_same_question_again()
+        else:
+            resumeDetails += answer
 
     save_resume_db(resumeDetails)
+
+function validate_answer(answer):
+    for field in answer.field():    # field() returns all the input fields in that answer
+        if field.value.length = 0:
+            return False
+        
+    return True
