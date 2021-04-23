@@ -1,11 +1,12 @@
 import React from 'react'
 
-const NextButton = ({ isDisable, setQuesNo }) => {
+const NextButton = ({ isDisable, setQuesNo, handleClick}) => {
 
     return (
         <button
-            onClick={() => setQuesNo(quesNo => quesNo + 1)}
+            onClick={handleClick}
             disabled={isDisable}
+            type="submit"
             className={`border rounded px-7 py-1 text-white focus:outline-none
             ${ isDisable ? "bg-brand-dark" : "bg-brand-light hover:bg-brand-dark"}`}>
             Next
