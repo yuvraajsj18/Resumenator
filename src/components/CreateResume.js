@@ -6,7 +6,7 @@ const CreateResume = () => {
     
     const [quesNo, setQuesNo] = useState(0);
     const no_of_questions = 10;
-    const { setTempResumeDetails } = useResume();
+    const { setTempResumeDetails, tempResumeDetails } = useResume();
 
     useEffect(() => {
         document.title = "Create Resume | Resumenator";
@@ -16,7 +16,7 @@ const CreateResume = () => {
         <section className="min-h-screen overflow-x-hidden">
             <h1 className="text-5xl sm:text-6xl text-center mt-5">My Resume</h1>
 
-            <Questions quesNo={quesNo} setQuesNo={setQuesNo} setTempResumeDetails={setTempResumeDetails}/>
+            <Questions quesNo={quesNo} setQuesNo={setQuesNo} tempResumeDetails={tempResumeDetails} setTempResumeDetails={setTempResumeDetails}/>
             
             {   quesNo === (no_of_questions-1) &&
                 <div className="mt-8">

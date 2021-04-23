@@ -3,16 +3,16 @@ import React, { useState } from 'react'
 import PreviousButton from './PreviousButton'
 import NextButton from './NextButton'
 
-const BasicInfo = ({ setQuesNo, setTempResumeDetails }) => {
+const BasicInfo = ({ setQuesNo, tempResumeDetails, setTempResumeDetails }) => {
 
     const [basicInfoDetails, setBasicInfoDetails] = useState({
-                                                        'first_name': '',
-                                                        'last_name': '',
-                                                        'email': '',
-                                                        'phone': '',
-                                                        'job_title': '',
-                                                        'city': '',
-                                                        'country': '',
+                                                        'first_name': tempResumeDetails?.basicInfo?.first_name ?? '',
+                                                        'last_name': tempResumeDetails?.basicInfo?.last_name ?? '',
+                                                        'email': tempResumeDetails?.basicInfo?.email ?? '',
+                                                        'phone': tempResumeDetails?.basicInfo?.phone ?? '',
+                                                        'job_title': tempResumeDetails?.basicInfo?.job_title ?? '',
+                                                        'city': tempResumeDetails?.basicInfo?.city ?? '',
+                                                        'country': tempResumeDetails?.basicInfo?.country ?? '',
                                                     });
 
     const handleChange = (e) => {
@@ -48,7 +48,7 @@ const BasicInfo = ({ setQuesNo, setTempResumeDetails }) => {
                 </div>
                 <div className="flex justify-between mt-5 max-w-xs sm:max-w-sm mx-auto">
                     <PreviousButton isDisable setQuesNo={setQuesNo}/>
-                    <NextButton setQuesNo={setQuesNo}/>
+                    <NextButton />
                 </div>
             </form>
         </div>

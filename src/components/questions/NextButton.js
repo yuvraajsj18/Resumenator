@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NextButton = ({ isDisable, setQuesNo, handleClick}) => {
+const NextButton = ({ isDisable, handleClick}) => {
 
     return (
         <button
