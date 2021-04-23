@@ -18,13 +18,13 @@ function create_resume():
     for question in questions:
         display_question(question)
 
-        answer = take_input()
+        answer = take_input();
 
         if not validate_answer(answer):
             show_error_message()
             ask_same_question_again()
         else:
-            resumeDetails += answer
+            resumeDetails += answer;
 
     save_resume_db(resumeDetails)
 
@@ -34,3 +34,11 @@ function validate_answer(answer):
             return False
         
     return True
+
+function see_jobs(resumeDetails):
+    jobs = get_jobs_db(resumeDetails.skills)
+
+    display_jobs()
+
+function view_resume(resumeDetails):
+    # to be implemented
