@@ -1,0 +1,22 @@
+function create_resume():
+    if not is_authenticated:
+        redirect('signin')
+    
+    questions = [
+        'How Can Recruiters Contact You?',
+        'How can you describe yourself?',
+        'Where did you study?',
+        'What are your most relevant experiences?',
+        'What are your stand-out skills?',
+        'What have you worked on?',
+        'What certifications do you have?',
+        'What are your achievements?'
+        'What are the various organizations have you been in?',
+        'Enter your social handles',
+    ]
+
+    for question in questions:
+        display_question(question)
+        resumeDetails += take_input();
+
+    save_resume_db(resumeDetails)
