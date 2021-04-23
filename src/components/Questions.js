@@ -11,19 +11,19 @@ import Organizations from './questions/Organizations'
 import Achievements from './questions/Achievements'
 import Socials from './questions/Socials'
 
-const Questions = ({ quesNo, setTempResumeDetails, setIsNextDisable, tempResumeDetails }) => {
+const Questions = ({ quesNo, setQuesNo, setTempResumeDetails, tempResumeDetails }) => {
     
     const questions = [
-        <BasicInfo setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable} tempResumeDetails={tempResumeDetails}/>,
-        <Summary setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable} tempResumeDetails={tempResumeDetails}/>,
-        <Education setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable} tempResumeDetails={tempResumeDetails}/>,
-        <Experience setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable} tempResumeDetails={tempResumeDetails}/>,
-        <Skills setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable} tempResumeDetails={tempResumeDetails}/>,
-        <Project setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable} tempResumeDetails={tempResumeDetails}/>,
-        <Certificate setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable} tempResumeDetails={tempResumeDetails}/>,
-        <Organizations setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable} tempResumeDetails={tempResumeDetails}/>,
-        <Achievements setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable} tempResumeDetails={tempResumeDetails}/>,
-        <Socials setTempResumeDetails={setTempResumeDetails} setIsNextDisable={setIsNextDisable} tempResumeDetails={tempResumeDetails}/>
+        <BasicInfo setQuesNo={setQuesNo} setTempResumeDetails={setTempResumeDetails} tempResumeDetails={tempResumeDetails}/>,
+        <Summary setQuesNo={setQuesNo} setTempResumeDetails={setTempResumeDetails} tempResumeDetails={tempResumeDetails}/>,
+        <Education setQuesNo={setQuesNo} setTempResumeDetails={setTempResumeDetails} tempResumeDetails={tempResumeDetails}/>,
+        <Experience setQuesNo={setQuesNo} setTempResumeDetails={setTempResumeDetails} tempResumeDetails={tempResumeDetails}/>,
+        <Skills setQuesNo={setQuesNo} setTempResumeDetails={setTempResumeDetails} tempResumeDetails={tempResumeDetails}/>,
+        <Project setQuesNo={setQuesNo} setTempResumeDetails={setTempResumeDetails} tempResumeDetails={tempResumeDetails}/>,
+        <Certificate setQuesNo={setQuesNo} setTempResumeDetails={setTempResumeDetails} tempResumeDetails={tempResumeDetails}/>,
+        <Organizations setQuesNo={setQuesNo} setTempResumeDetails={setTempResumeDetails} tempResumeDetails={tempResumeDetails}/>,
+        <Achievements setQuesNo={setQuesNo} setTempResumeDetails={setTempResumeDetails} tempResumeDetails={tempResumeDetails}/>,
+        <Socials setQuesNo={setQuesNo} setTempResumeDetails={setTempResumeDetails} tempResumeDetails={tempResumeDetails}/>
     ]
 
     return questions[quesNo];
