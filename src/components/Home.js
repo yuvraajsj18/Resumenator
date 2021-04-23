@@ -36,15 +36,23 @@ const Home = () => {
     return (<>
         <section className="mt-8">
             <div>
-                <button className="block mx-auto bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-72 px-5 py-3 text-lg font-medium focus:outline-none">
-                    {
-                        !Object.keys(resumeDetails).length === 0 && !resumeDetails.constructor === Object
-                        ?
-                        <Link to="/edit-resume">Edit Resume</Link>
-                        :
-                        <Link to="/create-resume">Create Resume</Link>
-                    }
-                </button>
+                { 
+                    !Object.keys(resumeDetails).length === 0 && !resumeDetails.constructor === Object
+                    ?
+                    <Link to="/edit-resume">
+                    <button className="block mx-auto bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-72 px-5 py-3 text-lg font-medium focus:outline-none">
+                        Edit Resume
+                    </button>
+                    </Link>
+                    :
+                    <Link to="/create-resume">
+                    <button className="block mx-auto bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-72 px-5 py-3 text-lg font-medium focus:outline-none">
+                        Create Resume
+                    </button>
+                    </Link>
+                }
+                
+
             </div>
         </section>
     
