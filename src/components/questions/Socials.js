@@ -24,7 +24,7 @@ const Socials = ({ setTempResumeDetails, setIsNextDisable, tempResumeDetails }) 
         else {
             setIsNextDisable(false);
         }
-        setTempResumeDetails(prevDetails);
+        setTempResumeDetails(prevDetails => ({...prevDetails, [e.target.name]: e.target.value}));
     }
     
     return (
