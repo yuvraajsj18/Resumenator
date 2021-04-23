@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
 
-
 const BasicInfo = ({ setTempResumeDetails, setIsNextDisable, tempResumeDetails }) => {
 
     const firstNameRef = useRef();
@@ -10,8 +9,6 @@ const BasicInfo = ({ setTempResumeDetails, setIsNextDisable, tempResumeDetails }
     const jobTitleRef = useRef();
     const cityRef = useRef();
     const countryRef = useRef();
-
-    const basicInfo = useState({});
 
     const isRequiredInputEmpty = () => {
 

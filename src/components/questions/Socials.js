@@ -1,6 +1,32 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
-const Socials = () => {
+const Socials = ({ setTempResumeDetails, setIsNextDisable, tempResumeDetails }) => {
+    
+    const personalWebRef = useRef()
+    const twitterRef = useRef()
+    const instagramRef = useRef()
+    const linkedInRef = useRef()
+
+    const isRequiredInputEmpty = () => {
+        
+        return !(
+            personalWebRef.current.value &&
+            twitterRef.current.value &&
+            instagramRef.current.value &&
+            linkedInRef.current.value
+        );
+    }
+
+    const handleChange = (e) => {
+        if (isRequiredInputEmpty()) {
+            setIsNextDisable(true);
+        }
+        else {
+            setIsNextDisable(false);
+        }
+        setTempResumeDetails(prevDetails => ({...prevDetails, [e.target.name]: e.target.value}));
+    }
+    
     return (
         <div className="flex flex-col items-center mt-8">
             <h2 className="text-3xl my-3 text-center">Enter your social handles</h2>
