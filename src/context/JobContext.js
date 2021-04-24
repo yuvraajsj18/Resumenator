@@ -19,7 +19,7 @@ export function JobProvider(props) {
         setLoading(false);
 
         return unsubJobSnapshot;
-	}, [resumeDetails.skills, filteredJobs]);
+	}, [resumeDetails.skills]);
 
     const getJobsFilteredWithSkills = async (skills) => {   
         if (!skills)
@@ -27,17 +27,16 @@ export function JobProvider(props) {
 
         const jobsCollectionRef = db.collection("jobs")
                                     .where('skills_required', 'array-contains-any', skills);
-        const jobList = [];
 
         const unsub = await jobsCollectionRef.onSnapshot( snapshot => {
+            const jobList = [];
 
             snapshot.forEach(doc => {
                 jobList.push({id: doc.id, ...doc.data()});
-            });
-
+            });     
             setFilteredJobs(jobList);
         });
-        
+
         return unsub;
     }
 
