@@ -18,7 +18,9 @@ function App() {
 
   return (
     <Router>
-      <Nav />
+      <ResumeProvider>
+        <Nav />
+      </ResumeProvider>
       <Switch>
         <Route path="/" exact>
           <Landing />
