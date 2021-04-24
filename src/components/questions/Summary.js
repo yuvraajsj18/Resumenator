@@ -22,7 +22,7 @@ const Summary = ({ setQuesNo, tempResumeDetails, setTempResumeDetails }) => {
             <h2 className="text-3xl my-3 text-center">How can you describe yourself?</h2>
             <form className="text-lg max-w-xs sm:max-w-none" onSubmit={(e) => handleNextClick(e)}>
                 <div className="py-3">
-                    <textarea name="summary" onChange={handleChange} value={summaryDetails} className="w-full border-b-2 focus:border-brand focus:outline-none" cols="50" rows="6" maxLength="280" placeholder="Start typing" required />
+                    <textarea name="summary" onChange={handleChange} value={summaryDetails} className="w-full border-b-2 focus:border-brand focus:outline-none" cols="50" rows="6" maxLength="280" placeholder="Start typing*" required />
                     <div className="text-sm">Max word length is 280 characters.</div>
                 </div>
                 <div className="flex justify-between mt-5 max-w-xs sm:max-w-sm mx-auto">

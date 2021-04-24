@@ -91,8 +91,8 @@ const Education = ({ setQuesNo, tempResumeDetails, setTempResumeDetails }) => {
                     {
                         educationDetailsList.map((education, index) => {
                             return (
-                                <li key={index} className="mb-2 flex flex-col">
-                                    <button onClick={() => handleDelete(index)} className="self-end text-red-600 text-lg"><AiFillDelete /></button>
+                                <li key={index} className="my-4 pr-1 border-r-4 flex flex-col">
+                                    <button onClick={() => handleDelete(index)} className="self-end text-red-600 text-lg focus:outline-none"><AiFillDelete /></button>
                                     <div className="flex justify-between">
                                         <h3 className="text-lg">{education.institute_name}</h3>
                                         <span className="">{education.score}</span>
@@ -113,13 +113,5 @@ const Education = ({ setQuesNo, tempResumeDetails, setTempResumeDetails }) => {
         </div>
     )
 }
-
-{/* <li>
-<div className="">{education.institute_name}</div>
-<div className="">{education.course}</div>
-<div className="">{education.score}</div>
-<div className="">{education.month}</div>
-<div className=""></div>
-</li> */}
 
 export default Education
