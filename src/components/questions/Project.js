@@ -17,10 +17,15 @@ const Project = ({ setQuesNo, tempResumeDetails, setTempResumeDetails }) => {
         setProjectDetails(prevDetails => ({...prevDetails, [e.target.name]: e.target.value}));
     }
 
-    const handleNextClick = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setTempResumeDetails(prevDetails => ({...prevDetails, project: projectDetailsList}));
-        setQuesNo(prevQuesNo => prevQuesNo + 1);
+
+        if (e.nativeEvent.submitter.id === "next-button") {
+            setQuesNo(prevQuesNo => prevQuesNo + 1);
+        } else if (e.nativeEvent.submitter.id === "previous-button") {
+            setQuesNo(prevQuesNo => prevQuesNo - 1);
+        }
     };
 
     const handlePlusClick = () => {
@@ -44,7 +49,7 @@ const Project = ({ setQuesNo, tempResumeDetails, setTempResumeDetails }) => {
     return (
         <div className="flex flex-col items-center mt-8">
             <h2 className="text-3xl my-3 text-center">What have you worked on?</h2>
-            <form className="text-lg max-w-xs sm:max-w-none" onSubmit={(e) => handleNextClick(e)}>
+            <form className="text-lg max-w-xs sm:max-w-none" onSubmit={(e) => handleSubmit(e)}>
                 <div className="py-3">
                     <input name="project_title" onChange={handleChange} value={projectDetails.project_title} className="w-full border-b-2 focus:border-brand focus:outline-none" type="text" placeholder="Project Title" />
                 </div>
@@ -54,7 +59,7 @@ const Project = ({ setQuesNo, tempResumeDetails, setTempResumeDetails }) => {
                 </div>
 
                 <div className="flex justify-between mt-5 max-w-xs sm:max-w-sm mx-auto">
-                    <PreviousButton setQuesNo={setQuesNo}/>
+                    <PreviousButton/>
                     <NextButton />
                 </div>
             </form>

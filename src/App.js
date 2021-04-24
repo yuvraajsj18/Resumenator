@@ -12,6 +12,7 @@ import Home from './components/Home'
 import CreateResume from './components/CreateResume'
 import { ResumeProvider } from './context/ResumeContext'
 import { JobProvider } from './context/JobContext'
+import ViewResume from './components/ViewResume'
 
 function App() {
 
@@ -47,6 +48,10 @@ function App() {
           <ResumeProvider>
             <CreateResume />
           </ResumeProvider>
+        </PrivateRoute>
+
+        <PrivateRoute path="/view-resume">
+          <ViewResume />
         </PrivateRoute>
       </Switch>
       <Footer />

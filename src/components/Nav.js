@@ -2,11 +2,13 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import Signout from './Signout'
+import { useResume } from '../context/ResumeContext'
 
 const Nav = () => {
 
     const { isAuthenticated } = useAuth();
     const location = useLocation();
+    const { isResumeCreated } = useResume();
 
     return (
         <nav className="flex justify-between p-3 border-b bg-brand text-white">
@@ -29,9 +31,17 @@ const Nav = () => {
                 </>}
 
                 {
-                    isAuthenticated && !['/setup'].includes(location.pathname)&& <>
-                        <button className="mr-2 hover:border-b-2">Resume</button>
-                        <button className="mr-2 hover:border-b-2">Profile</button> 
+                    isAuthenticated && !['/setup'].includes(location.pathname)&& 
+                    <>
+                        <button className="mr-2 hover:border-b-2">
+                            {
+                                isResumeCreated()
+                                ?
+                                <Link to="/view-resume">Resume</Link>
+                                :
+                                <Link to="/create-resume">Resume</Link>
+                            }
+                        </button>
                     </>
                 }
 

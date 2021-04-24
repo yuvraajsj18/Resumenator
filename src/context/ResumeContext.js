@@ -23,6 +23,7 @@ export function ResumeProvider(props) {
 
                 if (resumeDoc.exists) {
                     setResumeDetails({id: resumeDoc.id, ...resumeDoc.data()});
+                    console.log(resumeDetails);
                 }
             } catch(error) {
                 console.log(error.message);
@@ -35,10 +36,20 @@ export function ResumeProvider(props) {
         getResumeDetails();
 	});
 
+    const saveResume = () => {
+        return db.collection('resumes').doc(currentUser.uid).set(tempResumeDetails);     
+    }
+
+    const isResumeCreated = () => {
+        return !Object.keys(resumeDetails).length === 0 && !resumeDetails.constructor === Object;
+    }
+
 	const value = {
 		resumeDetails,
         tempResumeDetails,
         setTempResumeDetails,
+        saveResume,
+        isResumeCreated
 	}
 
 	return (

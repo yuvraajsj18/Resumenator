@@ -10,7 +10,7 @@ const Home = () => {
     const { currentUser } = useAuth();
     const history = useHistory();
     const { filteredJobs, } = useJob();
-    const { resumeDetails } = useResume();
+    const { isResumeCreated } = useResume();
 
     useEffect(() => {
         document.title = "Home | Resumenator";
@@ -37,7 +37,7 @@ const Home = () => {
         <section className="mt-8">
             <div>
                 { 
-                    !Object.keys(resumeDetails).length === 0 && !resumeDetails.constructor === Object
+                    isResumeCreated()
                     ?
                     <Link to="/edit-resume">
                     <button className="block mx-auto bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-72 px-5 py-3 text-lg font-medium focus:outline-none">
@@ -51,8 +51,6 @@ const Home = () => {
                     </button>
                     </Link>
                 }
-                
-
             </div>
         </section>
     
@@ -60,7 +58,7 @@ const Home = () => {
             <h1 className="mt-8 text-3xl text-center font-medium">Jobs For You</h1>
     
             {
-                !Object.keys(resumeDetails).length === 0 && !resumeDetails.constructor === Object
+                isResumeCreated()
                 ?
                 filteredJobs.length > 0 
                 ?
