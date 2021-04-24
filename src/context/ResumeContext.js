@@ -40,7 +40,6 @@ export function ResumeProvider(props) {
     }
 
     const isResumeCreated = () => {
-        console.log(Boolean(resumeDetails))
         return Boolean(resumeDetails);
     }
 
