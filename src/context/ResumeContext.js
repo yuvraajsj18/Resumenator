@@ -11,7 +11,7 @@ export function useResume() {
 export function ResumeProvider(props) {
 
     const [loading, setLoading] = useState(true);
-    const [resumeDetails, setResumeDetails] = useState({});
+    const [resumeDetails, setResumeDetails] = useState(null);
     const [tempResumeDetails, setTempResumeDetails] = useState({});
     const { currentUser } = useAuth();
 
@@ -23,7 +23,6 @@ export function ResumeProvider(props) {
 
                 if (resumeDoc.exists) {
                     setResumeDetails({id: resumeDoc.id, ...resumeDoc.data()});
-                    console.log(resumeDetails);
                 }
             } catch(error) {
                 console.log(error.message);
@@ -34,14 +33,15 @@ export function ResumeProvider(props) {
         }
 
         getResumeDetails();
-	});
+	}, [currentUser.uid]);
 
     const saveResume = () => {
         return db.collection('resumes').doc(currentUser.uid).set(tempResumeDetails);     
     }
 
     const isResumeCreated = () => {
-        return !Object.keys(resumeDetails).length === 0 && !resumeDetails.constructor === Object;
+        console.log(Boolean(resumeDetails))
+        return Boolean(resumeDetails);
     }
 
 	const value = {

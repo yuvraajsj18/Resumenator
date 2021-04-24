@@ -64,42 +64,42 @@ const Home = () => {
                 ?
                 <ul className="flex flex-wrap justify-center">
                     {        
-                        filteredJobs.map(job => {
+                        // filteredJobs.map(job => {
 
-                            return (                        
-                                <li className="mx-3" key={job.id}>
-                                    <div className="m-6 max-w-xs sm:max-w-md sm:w-full shadow-md hover:shadow-lg text-center border rounded-md px-3 py-4">
-                                        <h2 className="text-2xl">{job.title}</h2>
-                                        <p className="break-words my-1">
-                                            {
-                                                job.description.substring(0, 120)
-                                                (job.description.length > 120) && '...'
-                                            }
-                                        </p>
-                                        <div className="my-1">Experience: {job.experience_required}</div>
-                                        <div className="my-1">
-                                            Skills:
-                                            {
-                                                job.skills_required[0] 
-                                                && 
-                                                <span className="mx-1 bg-red-200 rounded-full px-2 py-1 text-sm">{job.skills_required[0]}</span>
-                                            }
-                                            {    
-                                                job.skills_required[1] 
-                                                && 
-                                                <span className="mx-1 bg-green-200 rounded-full px-2 py-1 text-sm">{job.skills_required[1]}</span>
-                                            }
-                                            {                      
-                                                job.skills_required[2] 
-                                                && 
-                                                <span className="mx-1 bg-blue-200 rounded-full px-2 py-1 text-sm">{job.skills_required[2]}</span>
-                                            }
-                                        </div>
-                                        <button className="border-2 mt-3 px-8 mb-2 py-1 rounded-md text-brand hover:bg-brand hover:text-white font-medium">See More Details</button>
-                                    </div>
-                                </li>
-                            );
-                        })
+                        //     return (                        
+                        //         <li className="mx-3" key={job.id}>
+                        //             <div className="m-6 max-w-xs sm:max-w-md sm:w-full shadow-md hover:shadow-lg text-center border rounded-md px-3 py-4">
+                        //                 <h2 className="text-2xl">{job.title}</h2>
+                        //                 <p className="break-words my-1">
+                        //                     {
+                        //                         job.description.substring(0, 120)
+                        //                         (job.description.length > 120) && '...'
+                        //                     }
+                        //                 </p>
+                        //                 <div className="my-1">Experience: {job.experience_required}</div>
+                        //                 <div className="my-1">
+                        //                     Skills:
+                        //                     {
+                        //                         job.skills_required[0] 
+                        //                         && 
+                        //                         <span className="mx-1 bg-red-200 rounded-full px-2 py-1 text-sm">{job.skills_required[0]}</span>
+                        //                     }
+                        //                     {    
+                        //                         job.skills_required[1] 
+                        //                         && 
+                        //                         <span className="mx-1 bg-green-200 rounded-full px-2 py-1 text-sm">{job.skills_required[1]}</span>
+                        //                     }
+                        //                     {                      
+                        //                         job.skills_required[2] 
+                        //                         && 
+                        //                         <span className="mx-1 bg-blue-200 rounded-full px-2 py-1 text-sm">{job.skills_required[2]}</span>
+                        //                     }
+                        //                 </div>
+                        //                 <button className="border-2 mt-3 px-8 mb-2 py-1 rounded-md text-brand hover:bg-brand hover:text-white font-medium">See More Details</button>
+                        //             </div>
+                        //         </li>
+                        //     );
+                        // })
                     }
                 </ul>
                 :                
