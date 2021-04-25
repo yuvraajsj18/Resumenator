@@ -16,6 +16,9 @@ module.exports = {
         twitter: '#00acee',
         linkedIn: '#0077b5',
       },
+      screens: {
+        'print': {'raw': 'print'},
+      }
     },
   },
   variants: {

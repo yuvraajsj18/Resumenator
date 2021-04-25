@@ -24,9 +24,13 @@ const ViewResume = () => {
             socials,
         } = resumeDetails;
 
+    const handlePrint = () => {
+        window.print();
+    }
+
     return (
-        <section className="min-h-screen">
-      <h1 className="text-center text-5xl my-5">
+    <section className="min-h-screen">
+      <h1 className="print:hidden text-center text-5xl my-5">
         Resume
       </h1>
       <div className="mx-auto px-3 max-w-4xl border rounded shadow-xl">
@@ -242,14 +246,16 @@ const ViewResume = () => {
       </div>
       </div>
 
-      <div className="my-5 flex justify-center sm:justify-around flex-wrap">
+      <div className="print:hidden my-5 flex justify-center sm:justify-around flex-wrap">
         <div className="">
         <Link to="edit-resume">
             <button className="bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-36 px-3 py-2 text-lg font-medium focus:outline-none">
             Edit Resume
             </button>
         </Link>
-        <button className="bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-36 px-3 py-2 text-lg font-medium focus:outline-none">
+        <button 
+          onClick={handlePrint}
+          className="bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-36 px-3 py-2 text-lg font-medium focus:outline-none">
           Download
         </button>
         </div>

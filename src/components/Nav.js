@@ -11,7 +11,7 @@ const Nav = () => {
     const { isResumeCreated } = useResume();
 
     return (
-        <nav className="flex justify-between p-3 border-b bg-brand text-white">
+        <nav className="print:hidden flex justify-between p-3 border-b bg-brand text-white">
             <div className="logo text-lg cursor-pointer">
                 {
                     isAuthenticated ?
