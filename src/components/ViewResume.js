@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useResume } from '../context/ResumeContext'
 
 import { FiTwitter } from 'react-icons/fi'
@@ -243,21 +244,23 @@ const ViewResume = () => {
 
       <div className="my-5 flex justify-center sm:justify-around flex-wrap">
         <div className="">
-        <button className="bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-36 px-3 py-2 text-lg font-medium focus:outline-none">
-          Edit Resume
-        </button>
+        <Link to="edit-resume">
+            <button className="bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-36 px-3 py-2 text-lg font-medium focus:outline-none">
+            Edit Resume
+            </button>
+        </Link>
         <button className="bg-brand hover:bg-brand-dark text-white rounded shadow-lg border w-36 px-3 py-2 text-lg font-medium focus:outline-none">
           Download
         </button>
         </div>
-        <div className="mt-2 sm:mt-0">
+        {/* <div className="mt-2 sm:mt-0">
         <button className="hover:bg-linkedIn bg-brand text-white rounded shadow-lg border w-36 px-3 py-2 text-lg font-medium focus:outline-none">
           LinkedIn
         </button>
         <button className="hover:bg-twitter bg-brand text-white rounded shadow-lg border w-36 px-3 py-2 text-lg font-medium focus:outline-none">
           Twitter
         </button>
-        </div>
+      </div> */}
       </div>
     </section>
     )
