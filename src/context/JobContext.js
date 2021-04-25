@@ -15,11 +15,12 @@ export function JobProvider(props) {
     const { resumeDetails } = useResume();
 
 	useEffect(() => {
-        const unsubJobSnapshot = getJobsFilteredWithSkills(resumeDetails.skills);
+        const unsubJobSnapshot = getJobsFilteredWithSkills(resumeDetails?.skills ?? null);
         setLoading(false);
 
         return unsubJobSnapshot;
-	}, [resumeDetails.skills]);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
     const getJobsFilteredWithSkills = async (skills) => {   
         if (!skills)

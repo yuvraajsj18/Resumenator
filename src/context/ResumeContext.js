@@ -20,7 +20,12 @@ export function ResumeProvider(props) {
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-    const getResumeDetails = async () => {        
+    const getResumeDetails = async () => {
+        if (!currentUser) {
+            setLoading(false);
+            return;
+        }
+
         const resumeDocRef = db.collection("resumes").doc(currentUser.uid);
         try {
             const resumeDoc = await resumeDocRef.get();
@@ -42,6 +47,7 @@ export function ResumeProvider(props) {
     }
 
     const isResumeCreated = () => {
+    
         return Boolean(resumeDetails);
     }
 

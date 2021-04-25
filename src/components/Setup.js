@@ -19,8 +19,6 @@ const Setup = () => {
         const isSetupComplete = async () => {        
             const userDocRef = db.collection("users").doc(currentUser.uid);
 
-            console.log(currentUser.uid);
-
             try {
                 const userDoc = await userDocRef.get();
 
