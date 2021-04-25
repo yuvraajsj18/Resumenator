@@ -16,24 +16,26 @@ export function ResumeProvider(props) {
     const { currentUser } = useAuth();
 
 	useEffect(() => {
-        const getResumeDetails = async () => {        
-            const resumeDocRef = db.collection("resumes").doc(currentUser.uid);
-            try {
-                const resumeDoc = await resumeDocRef.get();
-
-                if (resumeDoc.exists) {
-                    setResumeDetails({id: resumeDoc.id, ...resumeDoc.data()});
-                }
-            } catch(error) {
-                console.log(error.message);
-            }
-            finally {
-                setLoading(false);
-            }
-        }
-
         getResumeDetails();
-	}, [currentUser.uid]);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
+    const getResumeDetails = async () => {        
+        const resumeDocRef = db.collection("resumes").doc(currentUser.uid);
+        try {
+            const resumeDoc = await resumeDocRef.get();
+
+            if (resumeDoc.exists) {
+                setResumeDetails({id: resumeDoc.id, ...resumeDoc.data()});
+                setTempResumeDetails(resumeDoc.data());
+            }
+        } catch(error) {
+            console.log(error.message);
+        }
+        finally {
+            setLoading(false);
+        }
+    }
 
     const saveResume = () => {
         return db.collection('resumes').doc(currentUser.uid).set(tempResumeDetails);     
@@ -48,7 +50,8 @@ export function ResumeProvider(props) {
         tempResumeDetails,
         setTempResumeDetails,
         saveResume,
-        isResumeCreated
+        isResumeCreated,
+        getResumeDetails
 	}
 
 	return (

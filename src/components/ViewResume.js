@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useResume } from '../context/ResumeContext'
 
@@ -9,7 +9,7 @@ import { FiInstagram } from 'react-icons/fi'
 
 const ViewResume = () => {
 
-    const { resumeDetails } = useResume();
+    const { resumeDetails, getResumeDetails } = useResume();
 
     const {
             basicInfo,
@@ -23,6 +23,11 @@ const ViewResume = () => {
             achievements,
             socials,
         } = resumeDetails;
+
+    useEffect(() => {
+        getResumeDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const handlePrint = () => {
         window.print();

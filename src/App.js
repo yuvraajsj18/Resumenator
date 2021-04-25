@@ -52,6 +52,12 @@ function App() {
           </ResumeProvider>
         </PrivateRoute>
 
+        <PrivateRoute path="/edit-resume">
+          <ResumeProvider>
+            <CreateResume />
+          </ResumeProvider>
+        </PrivateRoute>
+
         <PrivateRoute path="/view-resume">
           <ResumeProvider>
             <ViewResume />

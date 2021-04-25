@@ -85,7 +85,7 @@ const Project = ({ setQuesNo, tempResumeDetails, setTempResumeDetails }) => {
                                 <li key={index} className="my-4 pr-1 border-r-4">
                                     <button onClick={() => handleDelete(index)} className="float-right focus:outline-none text-red-600 text-lg"><AiFillDelete /></button>
                                     <h3 className="text-lg">{project.project_title}</h3>
-                                    <p class="break-words">
+                                    <p className="break-words">
                                         {project.description}
                                     </p>
                                 </li>
