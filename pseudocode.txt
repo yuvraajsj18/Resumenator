@@ -38,7 +38,15 @@ function validate_answer(answer):
 function see_jobs(resumeDetails):
     jobs = get_jobs_db(resumeDetails.skills)
 
-    display_jobs()
+    if jobs not found:
+        show_error_message()
+    else:
+        display_jobs()
 
-function view_resume(resumeDetails):
-    # to be implemented
+function view_resume():
+    resume = get_resume_db(currentUser)
+
+    if resume not found:
+        redirect(create_resume)
+    else:
+        display_resume()
